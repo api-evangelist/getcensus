@@ -1,0 +1,76 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://www.getcensus.com/",
+  "name": "Census",
+  "alternateName": "Fivetran Activations",
+  "description": "Census (now Fivetran Activations) is a reverse ETL platform that syncs data from data warehouses to CRM, marketing, advertising, and other business destinations. It enables data teams to define SQL-based models and segments, then automatically activate that data to over 200 destinations including Salesforce, HubSpot, Facebook Ads, and Google Ads without writing custom integrations.",
+  "url": "https://www.getcensus.com/",
+  "logo": "https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg",
+  "sameAs": [
+    "https://www.fivetran.com/",
+    "https://github.com/sutrolabs",
+    "https://www.linkedin.com/company/getcensus",
+    "https://x.com/getcensus"
+  ],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://developers.getcensus.com/api-reference/introduction/overview"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Census Management API",
+    "description": "REST API for programmatically managing syncs, connections, models, segments, and destinations within Census workspaces and organizations.",
+    "url": "https://developers.getcensus.com/api-reference/introduction/overview"
+  },
+  "knowsAbout": [
+    "Reverse ETL",
+    "Data Activation",
+    "Data Warehouse",
+    "CRM Integration",
+    "Marketing Automation",
+    "SQL Models",
+    "Audience Segments",
+    "Data Synchronization"
+  ],
+  "potentialAction": {
+    "@type": "Action",
+    "name": "Access Census Management API",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://app.getcensus.com/api/v1",
+      "httpMethod": "GET"
+    }
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "developer support",
+    "url": "https://developers.getcensus.com/api-reference/introduction/overview"
+  },
+  "subjectOf": [
+    {
+      "@type": "WebPage",
+      "name": "Census API Documentation",
+      "url": "https://fivetran.com/docs/activations",
+      "description": "Full documentation for Fivetran Activations (formerly Census) including REST API reference, sync configuration, and destination integrations."
+    },
+    {
+      "@type": "WebPage",
+      "name": "Census Changelog",
+      "url": "https://whatsnew.getcensus.com/",
+      "description": "Product changelog tracking improvements and new features for Census / Fivetran Activations."
+    },
+    {
+      "@type": "WebPage",
+      "name": "Census Pricing",
+      "url": "https://www.fivetran.com/pricing",
+      "description": "Pricing plans for Fivetran Activations (formerly Census)."
+    },
+    {
+      "@type": "WebPage",
+      "name": "Census Status Page",
+      "url": "https://status.getcensus.com/",
+      "description": "Live status and incident history for the Census / Fivetran Activations platform."
+    }
+  ]
+}
