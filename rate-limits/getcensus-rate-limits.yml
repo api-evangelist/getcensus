@@ -1,0 +1,33 @@
+name: Census API Rate Limits
+description: Rate limit information for the Census (Fivetran Activations) Management REST API.
+url: https://fivetran.com/docs/activations/rest-api/api-reference/introduction
+notes: Census does not publicly document explicit numeric rate limits (requests per minute/hour) in their API reference. Rate limit details are subject to change and may vary by plan tier. Contact Census/Fivetran support for specific rate limit thresholds.
+limits:
+  - scope: Workspace API
+    description: API calls authenticated with workspace access tokens for managing syncs, connections, models, and segments within a single workspace.
+    limit: Not publicly specified
+    window: Not publicly specified
+    enforcement: HTTP 429 Too Many Requests response when exceeded
+  - scope: Organization API
+    description: API calls authenticated with personal access tokens for managing workspaces, users, and invitations across an organization.
+    limit: Not publicly specified
+    window: Not publicly specified
+    enforcement: HTTP 429 Too Many Requests response when exceeded
+pagination:
+  default_page_size: 25
+  max_page_size: 100
+  parameter: per_page
+authentication:
+  workspace_api:
+    type: Bearer token
+    header: "Authorization: Bearer <workspace-access-token>"
+    generation: Retrieved from workspace settings under API Access section
+  organization_api:
+    type: Bearer token
+    header: "Authorization: Bearer <personal-access-token>"
+    generation: Generated from user settings page under Personal Access Tokens; click New Token
+regions:
+  - name: US
+    base_url: https://app.getcensus.com/api/v1
+  - name: EU
+    base_url: https://app-eu.getcensus.com/api/v1

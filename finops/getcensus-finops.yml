@@ -1,0 +1,33 @@
+name: Census FinOps
+description: Financial operations and cost management guidance for Census (Fivetran Activations) reverse ETL platform usage.
+url: https://www.fivetran.com/pricing
+metrics:
+  - name: Monthly Active Rows (MAR) - Activations
+    description: The primary billing metric for activations. Counts the number of unique rows synced to destinations each month.
+    free_tier: 3,500 MAR per month
+    billing: Usage-based; tiered pricing at higher volumes
+  - name: Monthly Active Rows (MAR) - Connections
+    description: Billing metric for source connections (ELT pipelines).
+    free_tier: 500,000 MAR per month
+    billing: Usage-based; $5 minimum base charge for 1-1M MAR
+  - name: Monthly Model Runs (MMR) - Transformations
+    description: Billing metric for dbt and SQL transformation runs.
+    free_tier: 5,000 model runs per month on all plans
+    billing: Tiered - $0.01/run (low volume), $0.007/run (mid volume), $0.002/run (high volume)
+cost_optimization:
+  - tip: Use the Free plan to evaluate Census before committing to a paid plan; includes 3,500 MAR for activations.
+  - tip: Annual contracts save up to 22% compared to month-to-month billing.
+  - tip: Monitor Monthly Active Rows closely; only rows that are actively synced count toward billing.
+  - tip: Schedule syncs during off-peak hours and use incremental syncs to minimize row counts.
+  - tip: Use SQL-defined segments to precisely control which records are activated to each destination.
+  - tip: Leverage the 5,000 free monthly model runs for transformations before incurring additional costs.
+  - tip: Consolidate destinations where possible to reduce the total number of activated rows across syncs.
+  - tip: Explore nonprofit, startup, and eligible customer discount programs for additional savings.
+billing_model: usage-based
+contract_options:
+  - monthly
+  - annual (up to 22% savings)
+support:
+  - Free plan includes community support
+  - Standard and above include standard support tiers
+  - Enterprise and Business Critical plans include priority support

@@ -1,0 +1,58 @@
+name: Census Plans and Pricing
+description: Pricing plans for Census (now Fivetran Activations), a reverse ETL platform for syncing data warehouse data to CRM, marketing, and other business destinations.
+url: https://www.fivetran.com/pricing
+plans:
+  - name: Free
+    description: Entry-level plan with no credit card required, suitable for individuals and small teams exploring reverse ETL capabilities.
+    price: $0
+    billing: monthly
+    features:
+      - 3,500 monthly active rows (MAR) for activations
+      - 500,000 monthly active rows for connections
+      - 5,000 monthly model runs for transformations
+      - Access to core sync functionality
+      - Basic destinations
+  - name: Standard
+    description: Most popular plan for growing teams needing full reverse ETL capabilities with usage-based pricing.
+    price: Usage-based
+    billing: monthly
+    features:
+      - Unlimited users
+      - 15-minute sync intervals
+      - 700+ fully managed connectors
+      - 200+ fully managed activation destinations
+      - dbt Core integration
+      - Role-based access control
+      - REST API access
+      - SSH tunnel encryption
+      - Usage-based pricing on activated rows
+  - name: Enterprise
+    description: Advanced plan for large organizations requiring faster syncs, enterprise security, and advanced access control.
+    price: Custom (contact sales)
+    billing: annual or monthly
+    features:
+      - All Standard features
+      - 1-minute sync intervals
+      - Audience Hub for activations
+      - Enterprise database connectors
+      - Custom roles
+      - VPN tunnels (annual contracts only)
+      - SCIM / user provisioning
+      - Multi-cloud provider selection (GCP, AWS, Azure)
+      - Hybrid deployment
+  - name: Business Critical
+    description: Top-tier plan for enterprises with strict compliance, data residency, and security requirements.
+    price: Custom (contact sales)
+    billing: annual or monthly
+    features:
+      - All Enterprise features
+      - Customer-managed encryption keys
+      - PCI DSS Level 1 certification
+      - Private networking options
+      - Advanced compliance controls
+notes:
+  - Annual contracts save up to 22%
+  - Pricing is usage-based on Monthly Active Rows (MAR) for activations
+  - Connections pricing starts at $5 minimum base charge for 1-1M MAR
+  - Transformation pricing: 5,000 model runs free per month on all plans; then tiered ($0.01, $0.007, $0.002 per run at higher volumes)
+  - Discounts available for nonprofits, startups, and eligible customers

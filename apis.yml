@@ -1,0 +1,65 @@
+aid: getcensus
+name: Census
+description: Census (now Fivetran Activations) is a reverse ETL platform that syncs data from data warehouses to CRM, marketing, advertising, and other business destinations. It enables data teams to define SQL-based models and segments, then automatically activate that data to over 200 destinations including Salesforce, HubSpot, Facebook Ads, and Google Ads without writing custom integrations.
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+url: https://raw.githubusercontent.com/api-evangelist/getcensus/refs/heads/main/apis.yml
+created: '2026-06-13'
+modified: '2026-06-13'
+specificationVersion: '0.19'
+tags:
+  - Reverse ETL
+  - Data Activation
+  - Data Warehouse
+  - CRM
+  - Marketing Automation
+  - Segments
+  - Syncs
+  - SQL
+apis:
+  - name: Census Management API
+    description: The Census Management REST API allows developers to programmatically manage syncs, connections, models, segments, and destinations within Census workspaces and organizations. Supports both workspace-level and organization-level operations authenticated via Bearer tokens.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://developers.getcensus.com/api-reference/introduction/overview
+    baseURL: https://app.getcensus.com/api/v1
+    tags:
+      - Reverse ETL
+      - Syncs
+      - Data Activation
+      - Management
+    properties:
+      - type: Documentation
+        url: https://fivetran.com/docs/activations/rest-api/api-reference/introduction
+      - type: OpenAPI
+        url: https://developers.getcensus.com/api-reference/introduction/overview
+      - type: PostmanCollection
+        url: https://fivetran.com/docs/activations/rest-api/api-reference/introduction
+common:
+  - type: Website
+    url: https://www.getcensus.com/
+  - type: Documentation
+    url: https://fivetran.com/docs/activations
+  - type: GitHubOrg
+    url: https://github.com/sutrolabs
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/getcensus
+  - type: Blog
+    url: https://www.getcensus.com/blog
+  - type: Pricing
+    url: https://www.fivetran.com/pricing
+  - type: StatusPage
+    url: https://status.getcensus.com/
+  - type: X
+    url: https://x.com/getcensus
+  - type: Plans
+    url: plans/getcensus-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/getcensus-rate-limits.yml
+  - type: FinOps
+    url: finops/getcensus-finops.yml
+  - type: Changelog
+    url: https://whatsnew.getcensus.com/
+  - type: Terraform
+    url: https://docs.getcensus.com/misc/developers/terraform
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
