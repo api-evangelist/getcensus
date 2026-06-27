@@ -56,7 +56,7 @@ common:
     url: rate-limits/getcensus-rate-limits.yml
   - type: FinOps
     url: finops/getcensus-finops.yml
-  - type: Changelog
+  - type: ChangeLog
     url: https://whatsnew.getcensus.com/
   - type: Terraform
     url: https://docs.getcensus.com/misc/developers/terraform
