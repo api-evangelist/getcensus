@@ -34,6 +34,10 @@ apis:
       - type: PostmanCollection
         url: https://fivetran.com/docs/activations/rest-api/api-reference/introduction
 common:
+  - type: TrustCenter
+    url: security/getcensus-trust-center.yml
+  - type: DomainSecurity
+    url: security/getcensus-domain-security.yml
   - type: Website
     url: https://www.getcensus.com/
   - type: Documentation
