@@ -16,7 +16,7 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/getcensus.png
 url: https://raw.githubusercontent.com/api-evangelist/getcensus/refs/heads/main/apis.yml
 created: '2026-06-13'
-modified: '2026-06-13'
+modified: '2026-08-13'
 specificationVersion: '0.19'
 tags:
   - Reverse ETL
@@ -31,7 +31,7 @@ apis:
   - name: Census Management API
     description: The Census Management REST API allows developers to programmatically manage syncs, connections, models, segments, and destinations within Census workspaces and organizations. Supports both workspace-level and organization-level operations authenticated via Bearer tokens.
     image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://developers.getcensus.com/api-reference/introduction/overview
+    humanURL: https://fivetran.com/docs/activations/rest-api/api-reference/introduction
     baseURL: https://app.getcensus.com/api/v1
     tags:
       - Reverse ETL
@@ -41,10 +41,16 @@ apis:
     properties:
       - type: Documentation
         url: https://fivetran.com/docs/activations/rest-api/api-reference/introduction
-      - type: OpenAPI
-        url: https://developers.getcensus.com/api-reference/introduction/overview
-      - type: PostmanCollection
+      - type: APIReference
         url: https://fivetran.com/docs/activations/rest-api/api-reference/introduction
+      - type: Authentication
+        url: authentication/getcensus-authentication.yml
+      - type: Conventions
+        url: conventions/getcensus-conventions.yml
+      - type: DataModel
+        url: data-model/getcensus-data-model.yml
+      - type: PostmanCollection
+        url: https://www.postman.com/getcensus/workspace/census-api/overview
 common:
   - type: TrustCenter
     url: security/getcensus-trust-center.yml
@@ -74,8 +80,58 @@ common:
     url: finops/getcensus-finops.yml
   - type: ChangeLog
     url: https://whatsnew.getcensus.com/
+  - type: ChangeLog
+    url: changelog/getcensus-changelog.yml
   - type: Terraform
-    url: https://docs.getcensus.com/misc/developers/terraform
+    url: https://fivetran.com/docs/activations/rest-api/terraform
+  - type: DeveloperPortal
+    url: https://fivetran.com/docs/activations/rest-api
+  - type: APIReference
+    url: https://fivetran.com/docs/activations/rest-api/api-reference/introduction
+  - type: Support
+    url: https://support.fivetran.com/hc/en-us
+  - type: SignUp
+    url: https://app.getcensus.com/signup
+  - type: TermsOfService
+    url: https://www.fivetran.com/legal/terms-of-use
+  - type: PrivacyPolicy
+    url: https://www.fivetran.com/legal/privacy
+  - type: Postman
+    url: https://www.postman.com/getcensus/workspace/census-api/overview
+  - type: Compliance
+    url: https://www.fivetran.com/security
+  - type: Authentication
+    url: authentication/getcensus-authentication.yml
+  - type: Conventions
+    url: conventions/getcensus-conventions.yml
+  - type: Conformance
+    url: conformance/getcensus-conformance.yml
+  - type: DataModel
+    url: data-model/getcensus-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/getcensus-lifecycle.yml
+  - type: Webhooks
+    url: asyncapi/getcensus-sync-lifecycle-webhooks.yml
+  - type: Packages
+    url: packages/getcensus-packages.yml
+  - type: SDKs
+    url: packages/getcensus-packages.yml
+  - type: Components
+    url: components/getcensus-components.yml
+  - type: LLMsTxt
+    url: llms/getcensus-llms.txt
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
+x-enrichment:
+  date: '2026-08-13'
+  status: enriched
+  artifacts_added: 13
+  pass: local-v1
+  notes: >-
+    Contract discovery (STEP 0b) ran against every host and found no OpenAPI, GraphQL SDL, AsyncAPI
+    or MCP surface for the Census Management API. The per-endpoint API reference pages on
+    fivetran.com link to https://fivetran.com/assets-docs/openapi/file_v1.yaml, which the STEP 0c
+    ownership check REJECTED: it is Fivetran's core REST API spec (info.title "OpenAPI Definition",
+    servers https://api.fivetran.com, basicAuth, /v1/connections...) with zero Activations or
+    getcensus paths, so it does not describe this API and was deliberately not saved.
