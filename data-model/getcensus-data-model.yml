@@ -1,0 +1,188 @@
+generated: '2026-08-13'
+method: derived
+source: >-
+  https://fivetran.com/llms.txt (the 125 published Activations REST API reference pages under
+  /docs/activations/rest-api/api-reference/)
+docs: https://fivetran.com/docs/activations/rest-api/api-reference/introduction
+name: Census (Fivetran Activations) Management API data model
+description: >-
+  Entity graph of the Census Management API, derived from the provider's own published API reference
+  index. It could NOT be derived from a spec: no OpenAPI is published for this API, and the
+  per-endpoint reference pages are one-line stubs that link to Fivetran's core api.fivetran.com spec
+  (a different API). Entities, their operations and their nesting are therefore taken from the
+  reference URL hierarchy and page titles, which are the provider's own naming. Field-level schemas
+  are NOT recorded here because the provider does not publish them for this API.
+confidence: >-
+  high for entity names, containment and operation coverage (read directly from published page
+  titles and paths); none for field names, types, or id formats, which are not published.
+scopes:
+  - name: Organization APIs
+    auth: personal access token (Bearer)
+    root: /api/v1
+  - name: Workspace APIs
+    auth: workspace API key (Bearer)
+    root: /api/v1
+entities:
+  - name: Organization
+    scope: organization
+    role: implicit root — the account a personal access token belongs to
+    operations: []
+  - name: User
+    scope: organization
+    operations: [list-users, fetch-user, update-user, remove-user]
+    status: deprecated
+    note: >-
+      Deprecated 2026-05-01 in favour of Fivetran's core Users endpoints. See
+      lifecycle/getcensus-lifecycle.yml.
+  - name: Invitation
+    scope: organization
+    operations:
+      [list-invitations, fetch-invitation, create-invitation, update-invitation,
+       revoke-invitation, resend-invitation]
+    status: deprecated
+  - name: Workspace
+    scope: organization
+    operations:
+      [list-workspaces, create-workspace, fetch-workspace, fetch-authenticated-workspace,
+       update-workspace, delete-workspace, clone-workspace, fetch-clone-status,
+       get-workspace-api-key]
+    note: >-
+      The unit of tenancy and the issuer of the workspace API key that authenticates every Workspace
+      API call. The June 2026 "Streamlining Fivetran Activations" announcement states workspaces are
+      going away.
+  - name: WorkspaceUser
+    scope: organization
+    operations:
+      [list-workspace-users, create-workspace-user, update-workspace-user, delete-workspace-user]
+  - name: WorkspaceInvitation
+    scope: organization
+    operations:
+      [list-workspaces-invitations, update-workspace-invitation, delete-workspace-invitation]
+  - name: WorkspaceVariable
+    scope: organization
+    operations:
+      [list-workspace-variables, fetch-workspace-variables, create-workspace-variable,
+       bulk-create-workspace-variables, update-workspace-variable]
+    note: Key/value variables that make a workspace clonable as a template.
+  - name: SourceType
+    scope: workspace
+    operations: [list-source-types, fetch-source-type]
+  - name: Source
+    scope: workspace
+    operations: [list-sources, create-source, fetch-source, update-source, delete-source]
+    note: A connected warehouse or other system Activations reads from.
+  - name: SourceObject
+    scope: workspace
+    parent: Source
+    operations: [list-source-objects]
+  - name: Model
+    scope: workspace
+    parent: Source
+    operations:
+      [list-models, create-model, fetch-model, update-model, delete-model,
+       start-column-refresh, check-column-refresh]
+    note: A SQL query against the source that defines what to sync.
+  - name: Segment
+    scope: workspace
+    parent: Source
+    operations: [list-segments, create-segment, fetch-segment, update-segment, delete-segment]
+  - name: Topic
+    scope: workspace
+    parent: Source
+    operations:
+      [get-topics, create-topic, fetch-topic, update-topic, delete-topic, create-a-topic-event]
+    note: Event stream source; create-a-topic-event pushes an event INTO Activations.
+  - name: Table
+    scope: workspace
+    parent: Source
+    operations:
+      [list-source-tables, start-table-refresh, check-table-refresh,
+       list-table-columns-by-locator, refresh-table-columns]
+  - name: Project
+    scope: workspace
+    parent: Source
+    operations: [list-projects-for-source, refresh-project, refresh-project-status]
+    note: External dataset repositories (dbt, Looker, Sigma) surface as projects on a source.
+  - name: Dataset
+    scope: workspace
+    operations:
+      [list-datasets, create-dataset, fetch-dataset, update-dataset, delete-dataset,
+       refresh-dataset-columns, fetch-dataset-column-refresh-status]
+  - name: DestinationType
+    scope: workspace
+    operations:
+      [list-connectors, create-connector, fetch-connector, update-connector,
+       publish-connector-to-organization, delete-connector, list-connector-object-types]
+    note: Includes customer-authored Custom Destinations, publishable to the organization.
+  - name: Destination
+    scope: workspace
+    operations:
+      [list-destinations, create-destination, fetch-destination, update-destination,
+       delete-destination]
+  - name: DestinationObject
+    scope: workspace
+    parent: Destination
+    operations:
+      [list-destination-objects, create-destination-object, fetch-destination-object,
+       list-destination-object-types, start-object-refresh, check-object-refresh,
+       start-fields-refresh, check-fields-refresh]
+  - name: SourceConnectLink
+    scope: workspace
+    operations:
+      [list-source-connect-links, create-source-connect-link, fetch-source-connect-link,
+       revoke-source-connect-link, create-destination-connect-link-for-source]
+    note: Signed link that powers the embedded source-connection iframe. See components/.
+  - name: DestinationConnectLink
+    scope: workspace
+    operations:
+      [list-destination-connect-links, create-destination-connect-link,
+       fetch-destination-connect-link, revoke-destination-connect-link,
+       create-destination-connect-link-for-destination]
+  - name: Sync
+    scope: workspace
+    operations:
+      [get-syncs, create-sync, fetch-sync, update-sync, delete-sync, trigger-sync,
+       test-a-sync, fetch-test-sync-run-status]
+    note: The central entity — binds a source-side definition to a destination object.
+  - name: SyncRun
+    scope: workspace
+    parent: Sync
+    operations:
+      [list-sync-runs, fetch-sync-run, cancel-sync-run, fetch-records, fetch-records-count,
+       fetch-records-export]
+  - name: Webhook
+    scope: workspace
+    operations: [list-webhooks, create-webhook, fetch-webhook, update-webhook, delete-webhook]
+    note: See asyncapi/getcensus-sync-lifecycle-webhooks.yml for the event catalogue.
+relationships:
+  - {from: Organization, to: Workspace, kind: has_many}
+  - {from: Organization, to: User, kind: has_many}
+  - {from: Organization, to: Invitation, kind: has_many}
+  - {from: Workspace, to: WorkspaceUser, kind: has_many}
+  - {from: Workspace, to: WorkspaceInvitation, kind: has_many}
+  - {from: Workspace, to: WorkspaceVariable, kind: has_many}
+  - {from: Workspace, to: Source, kind: has_many}
+  - {from: Workspace, to: Destination, kind: has_many}
+  - {from: Workspace, to: Dataset, kind: has_many}
+  - {from: Workspace, to: Sync, kind: has_many}
+  - {from: Workspace, to: Webhook, kind: has_many}
+  - {from: Source, to: SourceType, kind: belongs_to}
+  - {from: Source, to: SourceObject, kind: has_many}
+  - {from: Source, to: Model, kind: has_many}
+  - {from: Source, to: Segment, kind: has_many}
+  - {from: Source, to: Topic, kind: has_many}
+  - {from: Source, to: Table, kind: has_many}
+  - {from: Source, to: Project, kind: has_many}
+  - {from: Source, to: SourceConnectLink, kind: has_many}
+  - {from: Destination, to: DestinationType, kind: belongs_to}
+  - {from: Destination, to: DestinationObject, kind: has_many}
+  - {from: Destination, to: DestinationConnectLink, kind: has_many}
+  - {from: Sync, to: SyncRun, kind: has_many}
+  - {from: Sync, to: DestinationObject, kind: has_one, via: destination target}
+  - {from: Sync, to: Model, kind: has_one, via: source-side definition (one of Model/Segment/Table/Topic/Dataset)}
+  - {from: Webhook, to: SyncRun, kind: observes}
+coverage:
+  reference_pages_indexed: 125
+  entities: 24
+  id_formats: not published
+  field_schemas: not published

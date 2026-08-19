@@ -1,0 +1,93 @@
+generated: '2026-08-13'
+method: searched
+source: https://fivetran.com/docs/activations/syncs/sync-monitoring/sync-lifecycle-webhooks.md
+docs: https://fivetran.com/docs/activations/syncs/sync-monitoring/sync-lifecycle-webhooks
+spec_type: none
+spec_note: >-
+  Census (Fivetran Activations) publishes no AsyncAPI document for this surface. This file is the
+  webhook catalogue captured verbatim from the published Sync Lifecycle Webhooks page; it is NOT an
+  AsyncAPI document and no AsyncAPI pointer is emitted in apis.yml.
+name: Census Sync Lifecycle Webhooks
+description: >-
+  Outbound webhooks that notify an external system about the lifecycle of an Activations sync run and
+  about sync alerts. Webhooks are configured per workspace (Workspace settings -> Webhooks tab) and
+  are also manageable through the Management API workspace webhooks endpoints.
+transport: HTTPS POST to a subscriber-provided endpoint
+management:
+  ui: Workspace settings -> Webhooks tab -> Add Webhook
+  api_resource: Workspace APIs -> webhooks (list, create, fetch, update, delete)
+  api_docs: https://fivetran.com/docs/activations/rest-api/api-reference/workspace-apis/webhooks/list-webhooks
+configuration_fields:
+  - name: Name
+    required: true
+  - name: Description
+    required: false
+  - name: Endpoint
+    required: true
+    description: Endpoint Activations POSTs payloads to.
+  - name: Events
+    required: true
+    description: At least one subscribed event type.
+security:
+  signing_secret: >-
+    A one-time secret is displayed when the webhook is created and is used to validate the
+    authenticity of received payloads. The secret is not retrievable afterwards.
+  signature_header: not documented
+  replay_protection: not documented
+events:
+  - name: sync.alert.raised
+    category: sync-alert
+    description: A subscribed sync alert in the workspace was triggered.
+  - name: sync.alert.resolved
+    category: sync-alert
+    description: A subscribed sync alert was resolved.
+  - name: sync.triggered
+    category: sync-run-lifecycle
+    description: A sync run has been queued.
+  - name: sync.started
+    category: sync-run-lifecycle
+    description: Active work on the sync run has started.
+  - name: sync.completed
+    category: sync-run-lifecycle
+    description: The sync run completed, for both successful and failed runs.
+  - name: sync.success
+    category: sync-run-lifecycle
+    description: A sync run completed successfully.
+  - name: sync.failed
+    category: sync-run-lifecycle
+    description: A sync run failed.
+payload:
+  always_present:
+    - workspace_id
+    - sync_id
+    - sync_run_id
+    - event
+  additional_by_event:
+    sync.completed:
+      - status
+    sync.alert.raised:
+      - alert_instance_id
+      - alert_type
+      - message
+      - details
+      - followup_url
+    sync.alert.resolved:
+      - alert_instance_id
+      - alert_type
+      - message
+      - details
+      - followup_url
+related_event_surfaces:
+  - name: Topic events (source side)
+    description: >-
+      The Management API exposes source topics and a "Create a topic event" operation, so events can
+      also be pushed INTO Activations as a streaming source.
+    docs: https://fivetran.com/docs/activations/rest-api/api-reference/workspace-apis/sources/topics/create-a-topic-event
+  - name: Amazon EventBridge destination
+    description: Activations can publish records to Amazon EventBridge as a sync destination.
+    docs: https://fivetran.com/docs/activations/destinations/available-destinations/amazon-eventbridge
+  - name: HTTP Request destination
+    description: >-
+      The legacy Webhook destination has been replaced by the HTTP Request destination for
+      per-record outbound calls.
+    docs: https://fivetran.com/docs/activations/destinations/available-destinations/webhook

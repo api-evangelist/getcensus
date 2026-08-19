@@ -1,0 +1,58 @@
+generated: '2026-08-13'
+method: searched
+source: https://fivetran.com/docs/activations/rest-api/activations-in-powered-by-fivetran/features/connect-links/embeddable-connect-links.md
+docs: https://fivetran.com/docs/activations/rest-api/activations-in-powered-by-fivetran/features/connect-links/embeddable-connect-links
+name: Census (Fivetran Activations) embedded components
+description: >-
+  Census ships drop-in, iframe-embedded UI surfaces so a platform can let ITS customers create and
+  manage Activations connections from inside the platform's own application. These are hosted
+  surfaces reached through a signed connect link, not a downloadable element library — there is no
+  npm loader package. Gated to "Activations in Powered by Fivetran" (embedded/OEM) customers.
+availability:
+  plan_gate: Activations in Powered by Fivetran customers only
+  origin_allowlist: >-
+    Only pre-approved embedding origins may load the iframe; the embedding domain must be given to
+    the Census/Fivetran account team in advance (a tunnelled public URL is required for local
+    development).
+loader:
+  mechanism: HTML iframe pointing at a Census-hosted connect link
+  package: null
+  example: '<iframe src="https://app.getcensus.com/pbc?auth=<token>" allow="clipboard-read; clipboard-write" />'
+  permissions_policy: >-
+    clipboard-read and clipboard-write are recommended so the embedded app can write values such as
+    a Google Sheets service account to the end user's clipboard.
+families:
+  - name: Source Connect Link
+    description: >-
+      Lets an end user create and manage their activation data SOURCE connections from inside the
+      host application.
+    provisioning:
+      ui: Census UI
+      api: Workspace APIs -> source connect links (create)
+      api_docs: https://fivetran.com/docs/activations/rest-api/api-reference/workspace-apis/source-connect-links/create-source-connect-link
+  - name: Destination Connect Link
+    description: >-
+      Lets an end user create, reauthorize and manage activation DESTINATION connections from inside
+      the host application.
+    provisioning:
+      ui: Census UI
+      api: Workspace APIs -> destination connect links (list, create, fetch, revoke, reauthorize)
+      api_docs: https://fivetran.com/docs/activations/rest-api/api-reference/workspace-apis/destination-connect-links/list-destination-connect-links
+events:
+  transport: window.postMessage from the iframe to the host page
+  documented:
+    - name: LOADED
+      payload: '{ message: "LOADED" }'
+      meaning: The iframe is ready to be shown to the user.
+    - name: EXITED
+      meaning: The user quit the connect flow; a payload is returned when a connection was created.
+  note: >-
+    The docs publish LOADED and EXITED explicitly; only those two are recorded here. No further
+    message names are transcribed because the page's remaining examples were not verified.
+reference_implementation:
+  demo: https://embedded-demo.getcensus.com/integrations/import-dataset
+  source: https://github.com/sutrolabs/census-embedded-demo
+  language: JavaScript (Next.js)
+  note: >-
+    First-party demo application showing the iframe embed and postMessage handling
+    (components/EmbeddedSourceConnect.js). Reference app, not a distributed package.

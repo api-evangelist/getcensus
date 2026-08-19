@@ -1,0 +1,71 @@
+generated: '2026-08-13'
+method: searched
+source: https://whatsnew.getcensus.com/
+name: Census (Fivetran Activations) API lifecycle
+description: >-
+  Versioning, deprecation and operational-transparency posture for the Census Management API, read
+  from the provider's own changelog, status page and Activations documentation.
+versioning:
+  scheme: uri-path
+  current: v1
+  docs: https://fivetran.com/docs/activations/rest-api/api-reference/introduction
+  note: No date-based or header-based version negotiation is documented.
+deprecation:
+  policy_url: null
+  policy_published: false
+  sunset_header: unknown
+  note: >-
+    No written deprecation or sunset policy (notice period, RFC 8594 Sunset/Deprecation headers,
+    supported-version window) is published for the Activations API. Deprecations are announced
+    ad hoc on the changelog. No Deprecation pointer is emitted in apis.yml for that reason.
+  announced_deprecations:
+    - subject: Organization Users and Invitations endpoints
+      announced: '2026-05-01'
+      status: deprecated
+      replacement: >-
+        Fivetran's core Users endpoints, which also generate invitations and assign account-level
+        roles. The Fivetran endpoints use different internal IDs (users match by email address) and
+        Fivetran's standard auth mechanism rather than the Activations workspace/personal token.
+      sunset_date: not published
+      source: https://whatsnew.getcensus.com/activations-user-list-and-invitation-apis-deprecated-336835
+    - subject: Webhook destination
+      status: replaced
+      replacement: HTTP Request destination
+      source: https://fivetran.com/docs/activations/destinations/available-destinations/webhook
+    - subject: CSV Datasets
+      status: deprecated
+      sunset_date: '2026-08'
+      note: Documented as deprecated and scheduled for deletion by August 2026.
+      source: https://fivetran.com/docs/activations/datasets/overview/csv-datasets
+platform_migration:
+  announced: '2026-06-17'
+  title: Streamlining Fivetran Activations
+  source: https://whatsnew.getcensus.com/streamlining-fivetran-activations-upcoming-changes-to-make-fivetran-activations-easier-and-more-accessible-340063
+  summary: >-
+    Second phase of folding Census into Fivetran. Activation Sources move toward Fivetran
+    Destinations; Activations moves into Fivetran's clouds and regions; Activations adopts Fivetran's
+    access controls (SCIM, team management, finer-grained permissions); workspaces are being retired;
+    and activation syncs are regrouped into individual activations "in the UI and API, exactly like
+    connections in Fivetran today". This is a stated forthcoming breaking change to the API surface
+    profiled here.
+status_page:
+  url: https://status.getcensus.com/
+  provider: Atlassian Statuspage
+  machine_readable: https://status.getcensus.com/api/v2/summary.json
+  page_name: Fivetran Activations
+  probed: '2026-08-13'
+  http_status: 200
+sla:
+  url: null
+  uptime_target: not published
+changelog:
+  url: https://whatsnew.getcensus.com/
+  feed: https://whatsnew.getcensus.com/rss
+  artifact: changelog/getcensus-changelog.yml
+support:
+  url: https://support.fivetran.com/hc/en-us
+  note: Activations support is handled through the Fivetran support portal post-acquisition.
+deprecated_operations: []
+deprecated_operations_note: >-
+  Cannot be derived: the provider publishes no OpenAPI for this API, so no operation-level
+  `deprecated: true` flags exist to read.

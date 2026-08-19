@@ -1,0 +1,131 @@
+generated: '2026-08-13'
+method: searched
+source: https://whatsnew.getcensus.com/rss
+name: Census (Fivetran Activations) changelog
+url: https://whatsnew.getcensus.com/
+feed: https://whatsnew.getcensus.com/rss
+platform: Headway
+description: >-
+  Dated, publicly readable product changelog for Census / Fivetran Activations, published as a
+  Headway board with an RSS feed. Entries are labelled with a category (New, Improvement, Changelog,
+  Coming Soon). The window below is the 20 most recent entries the feed served on 2026-08-13; the
+  live board remains the source of truth.
+versioning:
+  scheme: uri-path
+  current: v1
+  api_versioned_entries: false
+  note: >-
+    Changelog entries are not tagged with an API version — the Management API is a single
+    unversioned-in-practice /api/v1 surface, so breaking API changes are announced in prose.
+entries:
+  - date: '2026-07-28'
+    category: Improvement
+    title: 'Reddit Ads: Event Source URL and Product Metadata Fields'
+    breaking: false
+    url: https://whatsnew.getcensus.com/reddit-ads-event-source-url-and-product-metadata-fields-343048
+  - date: '2026-07-28'
+    category: Improvement
+    title: 'Mixpanel: India (IN) Region Support'
+    breaking: false
+    url: https://whatsnew.getcensus.com/mixpanel-india-(in)-region-support-343046
+  - date: '2026-07-23'
+    category: Improvement
+    title: 'Braze: Additional API Region Support'
+    breaking: false
+    url: https://whatsnew.getcensus.com/braze-additional-api-region-support-342652
+  - date: '2026-07-20'
+    category: Improvement
+    title: 'Planhat: Owner Field, Conversation Object, and Mirror Sync Support'
+    breaking: false
+    url: https://whatsnew.getcensus.com/planhat-owner-field-conversation-object-and-mirror-sync-support-342473
+  - date: '2026-07-01'
+    category: Improvement
+    title: 'Amazon DynamoDB: Role-based IAM Auth with External ID'
+    breaking: false
+    url: https://whatsnew.getcensus.com/amazon-dynamodb-role-based-iam-auth-with-external-id-341162
+  - date: '2026-06-17'
+    category: Coming Soon
+    title: Streamlining Fivetran Activations - upcoming changes to the product and the API
+    breaking: true
+    highlights:
+      - Activation Sources move toward working like Fivetran Destinations.
+      - Activations moves into Fivetran's clouds and regions, starting with GCP.
+      - Activations adopts Fivetran access controls (SCIM, team management, finer-grained permissions).
+      - Workspaces are going away.
+      - Activation syncs are regrouped into individual activations in the UI and the API.
+    url: https://whatsnew.getcensus.com/streamlining-fivetran-activations-upcoming-changes-to-make-fivetran-activations-easier-and-more-accessible-340063
+  - date: '2026-06-17'
+    category: Improvement
+    title: 'LinkedIn Ads: IPv4 Address and GAID as Conversion Identifiers'
+    breaking: false
+    url: https://whatsnew.getcensus.com/linkedin-ads-ipv4-address-and-gaid-as-conversion-identifiers-340041
+  - date: '2026-06-09'
+    category: Changelog
+    title: Enforcing Audience Hub access
+    breaking: false
+    url: https://whatsnew.getcensus.com/enforcing-audience-hub-access-340580
+  - date: '2026-05-15'
+    category: Improvement
+    title: 'HTTP Request Object: per-sync custom headers'
+    breaking: false
+    url: https://whatsnew.getcensus.com/http-request-object-per-sync-custom-headers-337871
+  - date: '2026-05-14'
+    category: Improvement
+    title: 'HTTP Request: JSON Body Support on DELETE'
+    breaking: false
+    url: https://whatsnew.getcensus.com/http-request-json-body-support-on-delete-337803
+  - date: '2026-05-01'
+    category: Changelog
+    title: Activations User List and Invitation APIs deprecated
+    breaking: true
+    highlights:
+      - Organization Users and Invitations endpoints deprecated.
+      - Replaced by Fivetran's core Users endpoints, which use Fivetran's standard auth.
+      - Users match across the two systems by email address, not by ID.
+      - Developers advised to run both API keys in parallel during the transition.
+    url: https://whatsnew.getcensus.com/activations-user-list-and-invitation-apis-deprecated-336835
+  - date: '2026-04-08'
+    category: Improvement
+    title: 'Microsoft Dynamics: Service Principal Authentication'
+    breaking: false
+    url: https://whatsnew.getcensus.com/microsoft-dynamics-service-principal-authentication-335424
+  - date: '2026-04-01'
+    category: Changelog
+    title: Owner roles can now assign custom roles
+    breaking: false
+    url: https://whatsnew.getcensus.com/owner-roles-can-now-assign-custom-roles-334999
+  - date: '2026-03-25'
+    category: Improvement
+    title: 'Zendesk: V2 Custom Object Lookup Field Support'
+    breaking: false
+    url: https://whatsnew.getcensus.com/zendesk-v2-custom-object-lookup-field-support-334506
+  - date: '2026-03-23'
+    category: Improvement
+    title: 'LinkedIn Ads: Sync Multiple IDs for Customer Audiences'
+    breaking: false
+    url: https://whatsnew.getcensus.com/linkedin-ads-sync-multiple-ids-for-customer-audiences-334380
+  - date: '2026-03-23'
+    category: Improvement
+    title: 'HTTP Request: Client Credentials OAuth Support'
+    breaking: false
+    url: https://whatsnew.getcensus.com/http-request-client-credentials-oauth-support-334368
+  - date: '2026-03-17'
+    category: New
+    title: Trigger Activation Syncs from Fivetran Connections and Transformations
+    breaking: false
+    url: https://whatsnew.getcensus.com/trigger-activation-syncs-from-fivetran-connections-and-transformations-333959
+  - date: '2026-02-28'
+    category: Improvement
+    title: 'Salesforce: FinancialAccount Object Support'
+    breaking: false
+    url: https://whatsnew.getcensus.com/salesforce-financialaccount-object-support-332979
+  - date: '2026-02-27'
+    category: Improvement
+    title: 'Userflow: EU Region Support'
+    breaking: false
+    url: https://whatsnew.getcensus.com/userflow-eu-region-support-332959
+  - date: '2026-02-24'
+    category: Improvement
+    title: 'Ortto: Multi-Region Support'
+    breaking: false
+    url: https://whatsnew.getcensus.com/ortto-multi-region-support-332725

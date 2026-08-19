@@ -1,6 +1,14 @@
+generated: '2026-08-13'
+method: searched
+source: https://www.fivetran.com/pricing
 name: Census Plans and Pricing
 description: Pricing plans for Census (now Fivetran Activations), a reverse ETL platform for syncing data warehouse data to CRM, marketing, and other business destinations.
 url: https://www.fivetran.com/pricing
+plan_count: 4
+pricing_note: >-
+  Census was acquired by Fivetran and is sold as Fivetran Activations, so its plans are published on
+  fivetran.com/pricing rather than getcensus.com — www.getcensus.com/pricing 302s there. Verified
+  2026-08-13.
 plans:
   - name: Free
     description: Entry-level plan with no credit card required, suitable for individuals and small teams exploring reverse ETL capabilities.

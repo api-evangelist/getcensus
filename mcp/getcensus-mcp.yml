@@ -1,0 +1,98 @@
+generated: '2026-08-13'
+method: derived
+status: candidate
+source: >-
+  derived from data-model/getcensus-data-model.yml, itself derived from the 125 published Activations
+  REST API reference pages indexed in https://fivetran.com/llms.txt
+name: Census (Fivetran Activations) — candidate MCP tool surface
+description: >-
+  Census ships NO MCP server. This file is a CANDIDATE tool surface an implementer could build over
+  the Census Management API; it is not a product, not an endpoint, and it is deliberately NOT wired
+  as a `type: MCPServer` pointer in apis.yml, because that pointer asserts the provider operates an
+  agent surface and Census does not.
+deployment:
+  mode: none
+  endpoint: null
+  install: null
+  package: null
+  auth: api-key
+  verified: searched
+search_evidence:
+  - checked: Activations documentation (fivetran.com/docs/activations/**)
+    result: no MCP server, no /mcp endpoint, no agent surface documented
+  - checked: https://fivetran.com/llms.txt
+    result: >-
+      Two MCP pages exist under /docs/context-layer/ — "Agent Context MCP" and its setup guide — but
+      they belong to Fivetran's Context Layer product, NOT to Activations/Census. They expose an
+      organization's context layer to AI agents; they do not expose the Census Management API. This
+      is recorded as a Fivetran surface and is deliberately NOT claimed for this profile.
+  - checked: npm registry (@getcensus/*, census-*, getcensus)
+    result: no first-party MCP package
+  - checked: github.com/sutrolabs
+    result: no MCP server repository
+gaps_blocking_a_real_server:
+  - No OpenAPI is published for the Census Management API, so tool inputSchemas cannot be generated
+    from a contract — they would have to be hand-written against undocumented request bodies.
+  - The per-endpoint reference pages publish no parameters, request bodies or response schemas.
+candidate_tools:
+  - name: list_syncs
+    description: List the syncs in a workspace.
+    source_operation: workspace-apis/syncs/get-syncs (List Syncs)
+    reference: https://fivetran.com/docs/activations/rest-api/api-reference/workspace-apis/syncs/get-syncs
+  - name: fetch_sync
+    description: Fetch a single sync.
+    source_operation: workspace-apis/syncs/fetch-sync (Fetch sync)
+  - name: create_sync
+    description: Create a sync binding a source-side definition to a destination object.
+    source_operation: workspace-apis/syncs/create-sync (Create a new sync)
+  - name: update_sync
+    description: Update a sync configuration.
+    source_operation: workspace-apis/syncs/update-sync (Update a sync)
+  - name: trigger_sync
+    description: Trigger a sync run.
+    source_operation: workspace-apis/syncs/trigger-sync (Trigger a sync run)
+  - name: test_sync
+    description: Test a sync and poll the resulting test-run status.
+    source_operation: workspace-apis/syncs/test-a-sync + fetch-test-sync-run-status
+  - name: list_sync_runs
+    description: List runs for a sync, including record counts, statuses and error codes.
+    source_operation: workspace-apis/sync-runs/list-sync-runs (List sync runs)
+  - name: fetch_sync_run
+    description: Fetch one sync run.
+    source_operation: workspace-apis/sync-runs/fetch-sync-run (Fetch sync run)
+  - name: cancel_sync_run
+    description: Cancel a running sync.
+    source_operation: workspace-apis/sync-runs/cancel-sync-run (Cancel a running sync)
+  - name: fetch_sync_run_records
+    description: Fetch (or count, or export) the per-record results of a sync run.
+    source_operation: workspace-apis/sync-runs/fetch-records | fetch-records-count | fetch-records-export
+  - name: list_sources
+    description: List activation sources in a workspace.
+    source_operation: workspace-apis/sources/list-sources (List sources)
+  - name: list_models
+    description: List SQL models defined against a source.
+    source_operation: workspace-apis/sources/models/list-models (List models)
+  - name: list_segments
+    description: List segments defined against a source.
+    source_operation: workspace-apis/sources/segments/list-segments (List segments)
+  - name: list_datasets
+    description: List datasets in a workspace.
+    source_operation: workspace-apis/datasets/list-datasets (List datasets)
+  - name: list_destinations
+    description: List destinations in a workspace.
+    source_operation: workspace-apis/destinations/list-destinations (List destinations)
+  - name: list_destination_objects
+    description: List the objects a destination exposes as sync targets.
+    source_operation: workspace-apis/destinations/objects/list-destination-objects
+  - name: list_webhooks
+    description: List sync-lifecycle webhooks configured in a workspace.
+    source_operation: workspace-apis/webhooks/list-webhooks (List Webhooks)
+  - name: list_workspaces
+    description: List workspaces in the organization (organization API, personal access token).
+    source_operation: organization-apis/workspaces/list-workspaces (List workspaces)
+candidate_tools_note: >-
+  Each source_operation above names a real, published Activations API reference page
+  (https://fivetran.com/docs/activations/rest-api/api-reference/<path>). No HTTP method or URL path
+  is asserted here: the provider publishes neither an OpenAPI nor per-endpoint request/response
+  detail, and only https://app.getcensus.com/api/v1/syncs appears verbatim in the documentation.
+  An implementer must resolve method, path, parameters and request bodies against the live API.

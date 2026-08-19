@@ -1,0 +1,110 @@
+generated: '2026-08-13'
+method: searched
+source: https://fivetran.com/docs/activations/misc/security-and-privacy
+docs:
+  - https://fivetran.com/docs/activations/misc/security-and-privacy
+  - https://www.fivetran.com/security
+  - https://trust.fivetran.com/product/census/soc-2-type-2
+name: Census (Fivetran Activations) conformance and compliance posture
+description: >-
+  Which cross-cutting API standards the Census Management API conforms to, and which compliance
+  programs the company publishes. Standards conformance is asserted only where the provider's own
+  documentation shows it; because no OpenAPI is published for this API, nothing could be derived
+  from a machine-readable contract.
+ownership_note: >-
+  Census was acquired by Fivetran and now ships as Fivetran Activations. Compliance evidence is
+  therefore published on fivetran.com and trust.fivetran.com — a different domain from getcensus.com,
+  but the same company, and Fivetran's trust center carries a Census-specific product page
+  (trust.fivetran.com/product/census/soc-2-type-2).
+standards:
+  - id: oauth2
+    conforms: false
+    evidence: >-
+      The Management API uses opaque Bearer tokens (workspace API keys and personal access tokens),
+      not OAuth 2.0. No authorization server, token endpoint, or scope vocabulary is published.
+  - id: oidc
+    conforms: false
+    evidence: No /.well-known/openid-configuration is served on any Census host (all probes 403/404/SPA-shell).
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: >-
+      No application/problem+json error format is documented; responses use a proprietary
+      {status, data, pagination} envelope.
+  - id: rfc8594-sunset-header
+    conforms: false
+    evidence: No Sunset/Deprecation header support is documented; deprecations are announced on the changelog.
+  - id: rfc9116-security-txt
+    conforms: false
+    evidence: >-
+      /.well-known/security.txt returns 404 on www.getcensus.com, 403 on app.getcensus.com and
+      app-eu.getcensus.com, and an SPA shell on developers.getcensus.com. Probed 2026-08-13.
+  - id: rfc8615-well-known-uris
+    conforms: false
+    evidence: No /.well-known/ document of any kind is served. See well-known/getcensus-well-known.yml.
+  - id: openapi
+    conforms: false
+    evidence: >-
+      No OpenAPI is published for the Census Management API. The per-endpoint reference pages link to
+      https://fivetran.com/assets-docs/openapi/file_v1.yaml, which is Fivetran's CORE REST API spec
+      (servers https://api.fivetran.com, basicAuth, /v1/connections...) and contains zero Activations
+      or getcensus paths — it does not describe this API.
+  - id: asyncapi
+    conforms: false
+    evidence: >-
+      A real webhook event surface exists (7 documented events) but no AsyncAPI document is published.
+      See asyncapi/getcensus-sync-lifecycle-webhooks.yml.
+  - id: pagination-conventions
+    conforms: true
+    evidence: >-
+      A single documented page-number pagination scheme (page / per_page / order + a pagination
+      response object) applies to every GET collection endpoint.
+  - id: idempotency
+    conforms: false
+    evidence: No idempotency key or replay-safety contract is documented for any write operation.
+  - id: scim
+    conforms: partial
+    evidence: >-
+      SCIM / user provisioning is listed as an Enterprise plan feature on the pricing page, and the
+      June 2026 "Streamlining Fivetran Activations" note says Activations will adopt Fivetran's
+      access controls "which brings SCIM". No SCIM 2.0 endpoint is documented on the Activations API.
+compliance:
+  programs_published: true
+  page: https://www.fivetran.com/security
+  trust_center: https://trust.fivetran.com/
+  census_product_page: https://trust.fivetran.com/product/census/soc-2-type-2
+  certifications:
+    - id: soc2-type2
+      name: SOC 2 Type 2
+      evidence: >-
+        Named on the Activations Security & Privacy page. The report is requestable by existing
+        Activations customers from trust.fivetran.com/product/census/soc-2-type-2, or under NDA
+        during a trial.
+    - id: hipaa
+      name: HIPAA
+      evidence: Named on the Activations Security & Privacy page.
+    - id: gdpr
+      name: GDPR
+      evidence: Named on the Activations Security & Privacy page.
+    - id: ccpa
+      name: CCPA
+      evidence: Named on the Activations Security & Privacy page.
+    - id: eu-us-dpf
+      name: EU-US Data Privacy Framework
+      evidence: Named on the Activations Security & Privacy page.
+    - id: iso27001
+      name: ISO 27001
+      evidence: Named on the Fivetran security page (company-wide).
+    - id: pci-dss
+      name: PCI DSS
+      evidence: >-
+        Named on the Fivetran security page; PCI DSS Level 1 is listed as a Business Critical plan
+        feature on the pricing page.
+  assurance_practices:
+    - Regular third-party penetration testing; latest report available on request through support.
+    - Automated vulnerability scanning in the platform.
+  vulnerability_disclosure:
+    published: false
+    note: >-
+      No security.txt, responsible-disclosure page, or public bug bounty program (HackerOne,
+      Bugcrowd, Intigriti) was found for getcensus.com or fivetran.com on 2026-08-13, so no
+      VulnerabilityDisclosure or Security pointer is emitted.

@@ -1,3 +1,6 @@
+generated: '2026-08-13'
+method: derived
+source: plans/getcensus-plans-pricing.yml (https://www.fivetran.com/pricing)
 name: Census FinOps
 description: Financial operations and cost management guidance for Census (Fivetran Activations) reverse ETL platform usage.
 url: https://www.fivetran.com/pricing

@@ -1,0 +1,126 @@
+generated: '2026-08-13'
+method: searched
+source: https://fivetran.com/docs/activations/rest-api/api-reference/introduction
+docs:
+  - https://fivetran.com/docs/activations/rest-api/api-reference/introduction
+  - https://fivetran.com/docs/activations/rest-api/api-reference/introduction/pagination
+  - https://fivetran.com/docs/activations/rest-api/api-reference/introduction/authorization
+  - https://fivetran.com/docs/activations/syncs/retry-handling
+name: Census (Fivetran Activations) Management API conventions
+description: >-
+  Cross-cutting request/response semantics for the Census Management API, read from the published
+  Activations REST API reference. Nothing here is derived from an OpenAPI document: the provider does
+  not publish one for this API (the per-endpoint reference pages link to Fivetran's core
+  api.fivetran.com spec, which describes a different API).
+api_style: REST/JSON over HTTPS
+authentication:
+  style: HTTP Bearer
+  detail: see authentication/getcensus-authentication.yml
+  tokens:
+    - workspace API key (Workspace APIs)
+    - personal access token (Organization APIs)
+versioning:
+  scheme: uri-path
+  current: v1
+  path_prefix: /api/v1
+  header_negotiation: false
+  note: >-
+    The version is fixed in the path (https://app.getcensus.com/api/v1/...). No date-based or
+    header-based versioning is documented.
+regions:
+  strategy: region-specific base host
+  hosts:
+    - region: US
+      base_url: https://app.getcensus.com/api/v1
+    - region: EU
+      base_url: https://app-eu.getcensus.com/api/v1
+  note: >-
+    The Terraform provider also accepts region "au"; the API reference documents base URLs for US
+    and EU only, so no AU base host is recorded here.
+pagination:
+  style: page-number
+  applies_to: all GET collection endpoints
+  request_parameters:
+    - name: page
+      type: number
+      default: 1
+      description: Page of results to return. Always starts at 1; 0 is coerced to 1.
+    - name: per_page
+      type: number
+      default: 25
+      max: 100
+      description: Results per page. Cannot exceed 100.
+    - name: order
+      type: string
+      enum: [asc, desc]
+      default: desc
+      description: Orders results by creation time.
+  response_fields:
+    - name: pagination.total_records
+      description: Total records in the collection.
+    - name: pagination.per_page
+      description: Records on each page.
+    - name: pagination.prev_page
+      description: Previous page number, or null on the first page.
+    - name: pagination.page
+      description: Current page number.
+    - name: pagination.next_page
+      description: Next page number, or null on the last page.
+    - name: pagination.last_page
+      description: Number of the last page with records.
+    - name: next
+      description: >-
+        Fully-qualified URL to the next set of results. Documented as being phased out in favour of
+        the pagination object, but still present.
+  example_request: 'GET https://app.getcensus.com/api/v1/syncs?page=1&per_page=25&order=asc'
+response_envelope:
+  shape: '{ "status": "success", "data": [...], "pagination": { ... } }'
+  status_field: status
+  data_field: data
+  note: >-
+    Collection responses wrap results in a top-level status/data envelope alongside the pagination
+    object. The provider publishes no error-envelope reference or error-code catalogue, so no
+    errors/ artifact was written for this repo rather than inventing one.
+idempotency:
+  supported: unknown
+  documented: false
+  note: >-
+    No idempotency key header, request-replay window, or retry-safety contract is documented anywhere
+    in the Activations REST API reference. No Idempotency pointer is emitted in apis.yml for that
+    reason.
+request_tracing:
+  request_id_header: null
+  documented: false
+rate_limiting:
+  api_limits_documented: false
+  note: >-
+    No numeric request quota is published for the Census Management API itself. See
+    rate-limits/getcensus-rate-limits.yml.
+  destination_side:
+    description: >-
+      Activations documents how it behaves against the rate limits of the DESTINATION services it
+      syncs into (not its own API): it honours a Retry-After header when a destination returns one,
+      surfaces destination 429s in the API Inspector, and retries failed batches with exponential
+      backoff.
+    source: https://fivetran.com/docs/activations/syncs/retry-handling
+retry_semantics:
+  scope: sync execution (not API requests)
+  in_run: Rejected records are retried within the current sync run using exponential backoff.
+  across_runs: Records still rejected at the end of a run are retried on the next run, keyed by primary key.
+  split_batch_upload: >-
+    When a destination rejects a whole batch for one invalid record, Activations halves the batch and
+    retries each half recursively until every record is individually accepted or rejected.
+  source: https://fivetran.com/docs/activations/syncs/retry-handling
+field_expansion:
+  supported: false
+  documented: false
+metadata:
+  workspace_variables: >-
+    Arbitrary key/value workspace variables are a first-class API resource
+    (/api/v1 organization APIs -> workspace variables), used for templated/multi-tenant workspaces.
+cross_links:
+  authentication: authentication/getcensus-authentication.yml
+  rate_limits: rate-limits/getcensus-rate-limits.yml
+  lifecycle: lifecycle/getcensus-lifecycle.yml
+  webhooks: asyncapi/getcensus-sync-lifecycle-webhooks.yml
+  data_model: data-model/getcensus-data-model.yml

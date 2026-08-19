@@ -1,0 +1,70 @@
+generated: '2026-08-13'
+method: searched
+source: https://fivetran.com/docs/activations/rest-api/api-reference/introduction/authorization.md
+docs: https://fivetran.com/docs/activations/rest-api/api-reference/introduction/authorization
+note: >-
+  Census now ships as Fivetran Activations; the Census Management API reference moved from
+  developers.getcensus.com (which 301s to fivetran.com/docs/activations/rest-api) onto the Fivetran
+  docs host, but the API itself is still served from app.getcensus.com / app-eu.getcensus.com and is
+  still authenticated with Census-issued Bearer tokens. Derived mechanically was not possible: the
+  provider publishes no OpenAPI for this API (see conformance/ and the x-coverage block in apis.yml),
+  so this profile was read from the published authentication page rather than from securitySchemes.
+summary:
+  types:
+    - http
+  http_schemes:
+    - bearer
+  api_key_in: []
+  oauth2_flows: []
+  token_kinds:
+    - workspace-api-key
+    - personal-access-token
+schemes:
+  - name: workspaceBearerAuth
+    type: http
+    scheme: bearer
+    applies_to: Workspace APIs
+    description: >-
+      Workspace-scoped operations (syncs, sync runs, sources, models, topics, tables, destinations,
+      destination objects, destination types, connect links, webhooks) are authenticated with a
+      workspace API key presented as an HTTP Bearer token.
+    header: 'Authorization: Bearer <workspace-access-token>'
+    provisioning: >-
+      Open the workspace, then Workspace settings -> "API Access" to retrieve the workspace API key.
+    sources:
+      - https://fivetran.com/docs/activations/rest-api/api-reference/introduction/authorization.md
+  - name: organizationBearerAuth
+    type: http
+    scheme: bearer
+    applies_to: Organization APIs
+    description: >-
+      Organization-scoped operations (workspaces, workspace users, workspace variables, users,
+      invitations) are authenticated with a Personal Access Token presented as an HTTP Bearer token.
+      A PAT carries the same permissions as the user who generated it, so admin operations such as
+      creating and managing workspaces require an admin user.
+    header: 'Authorization: Bearer <personal-access-token>'
+    provisioning: >-
+      User settings page (https://fivetran.com/dashboard/activations/home/user-settings) ->
+      "Personal Access Tokens" -> New Token.
+    sources:
+      - https://fivetran.com/docs/activations/rest-api/api-reference/introduction/authorization.md
+regions:
+  - name: US
+    base_url: https://app.getcensus.com
+    example: https://app.getcensus.com/api/v1/syncs
+  - name: EU
+    base_url: https://app-eu.getcensus.com
+    example: https://app-eu.getcensus.com/api/v1/syncs
+guidance:
+  - Tokens must never be embedded in client-side code or committed to a repository.
+  - A compromised token is regenerated or deleted from Fivetran Activations settings.
+  - >-
+    The Terraform provider reads the organization Personal Access Token from the
+    CENSUS_PERSONAL_ACCESS_TOKEN environment variable and takes a region argument (us | eu | au).
+transition:
+  note: >-
+    The Users and Invitations organization endpoints were deprecated on 2026-05-01 and are replaced
+    by Fivetran's own Users endpoints, which use Fivetran's standard auth mechanism rather than the
+    Activations workspace/personal token. Fivetran advises developers to run both key types in
+    parallel during the migration.
+  source: https://whatsnew.getcensus.com/activations-user-list-and-invitation-apis-deprecated-336835

@@ -1,0 +1,55 @@
+generated: '2026-08-13'
+method: searched
+source: https://fivetran.com/docs/activations/rest-api/activations-in-powered-by-fivetran/observability-guide/sync-dry-runs
+name: Census (Fivetran Activations) test and preview surface
+description: >-
+  What a developer can exercise before touching production data. Census publishes NO sandbox in the
+  conventional sense — there is no test-mode key prefix, no separate test host, no magic test
+  identifiers, no fixture or trigger tooling, and no test clock. No `type: Sandbox` pointer is
+  emitted in apis.yml for that reason.
+test_vs_live_separation:
+  supported: false
+  key_prefixes: none published
+  test_host: none — https://app.getcensus.com and https://app-eu.getcensus.com are the only documented hosts
+  note: >-
+    Workspaces provide tenant isolation and are the closest thing to a staging environment: the
+    Terraform provider and the workspace clone/template-variable APIs exist precisely so a team can
+    reproduce a configuration across dev/staging/prod workspaces. That is environment separation the
+    customer builds, not a provider-run sandbox.
+preview_and_simulation:
+  - name: Sync Dry Runs
+    available_in_ui: true
+    available_in_api: false
+    description: >-
+      Preview what a sync will do — which records would be sent to which destination — without
+      sending any data.
+    verbatim_limitation: >-
+      "Today, you can run this in your Activations workspace to preview what will happen between you
+      and your customer's systems. As of today, this is not available in the API. Please reach out if
+      there is interest in exposing this feature to your customers."
+    source: https://fivetran.com/docs/activations/rest-api/activations-in-powered-by-fivetran/observability-guide/sync-dry-runs
+    agent_relevance: >-
+      This is the provider's dry-run capability, and it is UI-only. An agent driving the Management
+      API has no way to preview a write before executing it.
+  - name: Test a sync
+    available_in_api: true
+    description: >-
+      The Management API exposes "Test a sync" plus "Fetch test sync run status", which validates a
+      sync configuration end to end.
+    source: https://fivetran.com/docs/activations/rest-api/api-reference/workspace-apis/syncs/test-a-sync
+  - name: API Inspector
+    available_in_api: false
+    description: >-
+      Shows the real-time API calls Activations made to the destination service during a sync,
+      including failures and 429s — a debugging surface rather than a test environment.
+    source: https://fivetran.com/docs/activations/syncs/sync-monitoring/api-inspector
+free_access:
+  free_plan: true
+  credit_card_required: false
+  included: 3,500 monthly active rows for activations, 500,000 MAR for connections, 5,000 model runs
+  signup: https://app.getcensus.com/signup
+  note: >-
+    Self-serve evaluation is through the Free plan on the production platform, not a sandbox.
+test_values:
+  published: false
+  note: No test card numbers, test accounts, magic identifiers or fixture payloads are published — none invented here.

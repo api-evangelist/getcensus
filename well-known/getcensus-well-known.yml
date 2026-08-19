@@ -1,0 +1,72 @@
+generated: '2026-08-13'
+method: probed
+source: live GET of /.well-known/* on every Census host in apis.yml
+result: none
+note: >-
+  Census serves NO /.well-known/ document on any of its hosts. Every path was probed on 2026-08-13
+  and every one missed. Three distinct failure shapes were observed and none of them is a document:
+  www.getcensus.com returns HTTP 404 with the marketing SPA body; app.getcensus.com and
+  app-eu.getcensus.com return HTTP 403 with an S3 AccessDenied XML body; and
+  developers.getcensus.com returns HTTP 200 for EVERY path with an identical 79,466-byte Next.js
+  shell — a catch-all, not a served document. No WellKnown, SecurityTxt, APICatalog or AgentCard
+  pointer is emitted in apis.yml as a result.
+hosts:
+  - host: www.getcensus.com
+    behaviour: 404 with SPA body (204,083 bytes, identical for every path)
+  - host: app.getcensus.com
+    behaviour: 403 S3 AccessDenied XML (111 bytes, identical for every path)
+  - host: app-eu.getcensus.com
+    behaviour: 403 S3 AccessDenied XML (111 bytes, identical for every path)
+  - host: developers.getcensus.com
+    behaviour: >-
+      200 catch-all SPA shell (79,466 bytes, byte-identical for every path including
+      /zzz-nonexistent-path-123). Treated as a miss, not a hit.
+documents:
+  - path: /.well-known/security.txt
+    www.getcensus.com: 404
+    app.getcensus.com: 403
+    app-eu.getcensus.com: 403
+    developers.getcensus.com: 200-html-shell
+    file: null
+  - path: /.well-known/openid-configuration
+    www.getcensus.com: 404
+    app.getcensus.com: 403
+    app-eu.getcensus.com: 403
+    developers.getcensus.com: 200-html-shell
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    www.getcensus.com: 404
+    app.getcensus.com: 403
+    app-eu.getcensus.com: 403
+    developers.getcensus.com: 200-html-shell
+    file: null
+  - path: /.well-known/api-catalog
+    www.getcensus.com: 404
+    app.getcensus.com: 403
+    app-eu.getcensus.com: 403
+    developers.getcensus.com: 200-html-shell
+    file: null
+  - path: /.well-known/ai-plugin.json
+    www.getcensus.com: 404
+    app.getcensus.com: 403
+    app-eu.getcensus.com: 403
+    developers.getcensus.com: 200-html-shell
+    file: null
+  - path: /.well-known/agent-card.json
+    www.getcensus.com: 404
+    app.getcensus.com: 403
+    app-eu.getcensus.com: 403
+    developers.getcensus.com: 200-html-shell
+    file: null
+  - path: /.well-known/agent.json
+    www.getcensus.com: 404
+    app.getcensus.com: 403
+    app-eu.getcensus.com: 403
+    developers.getcensus.com: 200-html-shell
+    file: null
+also_probed:
+  - url: https://fivetran.com/.well-known/security.txt
+    status: 404
+    note: >-
+      Checked because Census now ships as Fivetran Activations. Fivetran serves no security.txt
+      either.

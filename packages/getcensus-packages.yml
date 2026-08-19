@@ -1,0 +1,95 @@
+generated: '2026-08-13'
+method: searched
+source: >-
+  registry.terraform.io, pypi.org, hub.getdbt.com, github.com/sutrolabs, and
+  https://fivetran.com/docs/activations/rest-api/terraform
+note: >-
+  Census (now Fivetran Activations) publishes no conventional REST client SDK — there is no
+  first-party JavaScript, Python, Go, Ruby, Java or .NET library for the Management API, and no
+  npm/RubyGems/NuGet/Maven package exists under a Census or getcensus namespace. What the company
+  does ship first-party are three infrastructure/orchestration clients, all published from its
+  engineering org github.com/sutrolabs and all named in its own documentation.
+packages:
+  - language: hcl
+    registry: terraform
+    name: sutrolabs/census
+    url: https://registry.terraform.io/providers/sutrolabs/census/latest
+    source: https://github.com/sutrolabs/terraform-provider-census
+    install: |
+      terraform {
+        required_providers {
+          census = {
+            source  = "sutrolabs/census"
+            version = "~> 0.2.0"
+          }
+        }
+      }
+    official: true
+    version: 0.2.17
+    published: '2026-08-05'
+    downloads: 24033
+    tier: community
+    docs: https://fivetran.com/docs/activations/rest-api/terraform
+    description: >-
+      Activations Terraform Provider — manages Activations resources as infrastructure as code.
+      Authenticates with an Activations personal access token (CENSUS_PERSONAL_ACCESS_TOKEN) and
+      takes a region argument (us | eu | au).
+  - language: python
+    registry: pypi
+    name: airflow-provider-census
+    url: https://pypi.org/project/airflow-provider-census/
+    source: https://github.com/sutrolabs/airflow-provider-census
+    install: pip install airflow-provider-census
+    official: true
+    version: 2.1.0
+    published: '2026-04-02'
+    description: >-
+      "A Fivetran Activations provider for Apache Airflow" — Airflow hook/operator/sensor that
+      triggers Activations syncs and waits on sync runs through the Management API.
+  - language: sql
+    registry: dbt-hub
+    name: sutrolabs/census_utils
+    url: https://hub.getdbt.com/sutrolabs/census_utils/latest/
+    source: https://github.com/sutrolabs/dbt_census_utils
+    install: |
+      packages:
+        - package: sutrolabs/census_utils
+          version: 0.1.2
+    official: true
+    version: 0.1.2
+    published: null
+    published_note: >-
+      hub.getdbt.com reports every version of this package with published_at
+      1970-01-01T00:00:00Z, the dbt Hub epoch placeholder, so no real release date is available from
+      the registry. Recorded as null rather than guessed.
+    description: dbt models packaged by Census for use alongside Activations datasets.
+absent:
+  - registry: npm
+    checked:
+      - '@getcensus/embedded'
+      - '@census/embedded'
+      - census-embedded
+      - getcensus
+    result: 404 — no first-party Census package published to npm.
+  - registry: rubygems
+    result: not published
+  - registry: nuget
+    result: not published
+  - registry: maven-central
+    result: not published
+  - registry: crates.io
+    result: not published
+  - registry: pkg.go.dev
+    result: >-
+      No standalone Go client. The Terraform provider is written in Go but is distributed through
+      the Terraform Registry, not as a consumable Go module SDK.
+related_first_party_repos:
+  - name: sutrolabs/census-embedded-demo
+    url: https://github.com/sutrolabs/census-embedded-demo
+    kind: reference application (not a distributed package) — see components/getcensus-components.yml
+  - name: sutrolabs/census-custom-api-docs
+    url: https://github.com/sutrolabs/census-custom-api-docs
+    kind: sample implementations of the Custom Destination contract (JS/TS), not a published package
+  - name: sutrolabs/custom-api-python
+    url: https://github.com/sutrolabs/custom-api-python
+    kind: sample Flask microservice for the Custom API destination, not a published package
