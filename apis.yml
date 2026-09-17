@@ -41,6 +41,7 @@ tags:
 - Segments
 - Syncs
 - SQL
+- Census
 apis:
 - name: Census Management API
   description: >-
