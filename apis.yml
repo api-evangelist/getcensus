@@ -39,9 +39,19 @@ tags:
 - CRM
 - Marketing Automation
 - Segments
+- Sync
+- SQL
+tags_raw:
+- Syncs
+- Census
+- Reverse ETL
+- Data Activation
+- Data Warehouse
+- CRM
+- Marketing Automation
+- Segments
 - Syncs
 - SQL
-- Census
 apis:
 - name: Census Management API
   description: >-
@@ -52,6 +62,11 @@ apis:
   humanURL: https://fivetran.com/docs/activations/rest-api/api-reference/introduction
   baseURL: https://app.getcensus.com/api/v1
   tags:
+  - Reverse ETL
+  - Sync
+  - Data Activation
+  - Management
+  tags_raw:
   - Reverse ETL
   - Syncs
   - Data Activation
@@ -93,6 +108,10 @@ apis:
 - aid: getcensus:census-custom-destinations-api
   name: Census Custom Destinations API
   tags:
+  - Custom Destinations
+  - Destination
+  - Integration
+  tags_raw:
   - Custom Destinations
   - Destinations
   - Integration
@@ -195,6 +214,8 @@ apis:
   humanURL: https://developers.getcensus.com/api-reference/sources
   baseURL: https://app.getcensus.com/api/v1
   tags:
+  - Destination
+  tags_raw:
   - Destinations
   properties:
   - type: Documentation
@@ -331,6 +352,8 @@ apis:
   humanURL: https://developers.getcensus.com/api-reference/sources
   baseURL: https://app.getcensus.com/api/v1
   tags:
+  - Sync
+  tags_raw:
   - Syncs
   properties:
   - type: Documentation
@@ -365,6 +388,8 @@ apis:
   humanURL: https://fivetran.com/docs/activations/rest-api/api-reference/introduction
   baseURL: https://app.getcensus.com/api/v1
   tags:
+  - Destination
+  tags_raw:
   - Destinations
   properties:
   - type: OpenAPI
@@ -405,6 +430,8 @@ apis:
   humanURL: https://fivetran.com/docs/activations/rest-api/api-reference/introduction
   baseURL: https://app.getcensus.com/api/v1
   tags:
+  - Sync Runs
+  tags_raw:
   - SyncRuns
   properties:
   - type: OpenAPI
@@ -415,6 +442,8 @@ apis:
   humanURL: https://fivetran.com/docs/activations/rest-api/api-reference/introduction
   baseURL: https://app.getcensus.com/api/v1
   tags:
+  - Sync
+  tags_raw:
   - Syncs
   properties:
   - type: OpenAPI
@@ -425,6 +454,8 @@ apis:
   humanURL: https://fivetran.com/docs/activations/rest-api/api-reference/introduction
   baseURL: https://app.getcensus.com/api/v1
   tags:
+  - Workspace
+  tags_raw:
   - Workspaces
   properties:
   - type: OpenAPI
