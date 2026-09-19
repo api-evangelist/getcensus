@@ -33,13 +33,14 @@ created: '2026-06-13'
 modified: '2026-08-13'
 specificationVersion: '0.23'
 tags:
+- Sync
+- Census
 - Reverse ETL
 - Data Activation
 - Data Warehouse
 - CRM
 - Marketing Automation
 - Segments
-- Sync
 - SQL
 tags_raw:
 - Syncs
