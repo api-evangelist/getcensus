@@ -1,0 +1,37 @@
+{
+  "provider": "getcensus",
+  "sources": [
+    "_original/census-destinations-api-openapi.yml",
+    "_original/census-models-api-openapi.yml",
+    "_original/census-segments-api-openapi.yml",
+    "_original/census-sources-api-openapi.yml",
+    "_original/census-syncruns-api-openapi.yml",
+    "_original/census-syncs-api-openapi.yml",
+    "_original/census-workspaces-api-openapi.yml"
+  ],
+  "outputs": [
+    "getcensus-destinations-api-openapi.yml",
+    "getcensus-models-api-openapi.yml",
+    "getcensus-segments-api-openapi.yml",
+    "getcensus-sources-api-openapi.yml",
+    "getcensus-syncruns-api-openapi.yml",
+    "getcensus-syncs-api-openapi.yml",
+    "getcensus-workspaces-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [
+    "sourced from openapi/_original/ (7 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "getcensus-destinations-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "getcensus-models-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "getcensus-segments-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "getcensus-sources-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "getcensus-syncruns-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "getcensus-syncs-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "getcensus-workspaces-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
+}
