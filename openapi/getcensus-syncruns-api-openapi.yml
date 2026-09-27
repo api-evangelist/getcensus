@@ -50,6 +50,13 @@ paths:
           description: Sync run
 components:
   parameters:
+    PerPage:
+      in: query
+      name: per_page
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 100
     Id:
       in: path
       name: id
@@ -62,13 +69,6 @@ components:
       schema:
         type: integer
         minimum: 1
-    PerPage:
-      in: query
-      name: per_page
-      schema:
-        type: integer
-        minimum: 1
-        maximum: 100
   securitySchemes:
     bearerAuth:
       type: http
