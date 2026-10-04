@@ -85,6 +85,26 @@ paths:
         '204':
           description: Deleted
 components:
+  parameters:
+    Page:
+      in: query
+      name: page
+      schema:
+        type: integer
+        minimum: 1
+    PerPage:
+      in: query
+      name: per_page
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 100
+    Id:
+      in: path
+      name: id
+      required: true
+      schema:
+        type: integer
   schemas:
     Destination:
       type: object
@@ -101,26 +121,6 @@ components:
         created_at:
           type: string
           format: date-time
-  parameters:
-    PerPage:
-      in: query
-      name: per_page
-      schema:
-        type: integer
-        minimum: 1
-        maximum: 100
-    Id:
-      in: path
-      name: id
-      required: true
-      schema:
-        type: integer
-    Page:
-      in: query
-      name: page
-      schema:
-        type: integer
-        minimum: 1
   securitySchemes:
     bearerAuth:
       type: http
