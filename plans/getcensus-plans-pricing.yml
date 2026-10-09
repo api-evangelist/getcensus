@@ -64,3 +64,35 @@ notes:
   - Connections pricing starts at $5 minimum base charge for 1-1M MAR
   - Transformation pricing: 5,000 model runs free per month on all plans; then tiered ($0.01, $0.007, $0.002 per run at higher volumes)
   - Discounts available for nonprofits, startups, and eligible customers
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - free
+  - negotiated
+  units: []
+  plans:
+  - name: Free
+    access: other
+    model: free
+    model_how: derived
+    units: []
+    periods: []
+  - name: Standard
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods: []
+  - name: Enterprise
+    access: other
+    model: negotiated
+    model_how: derived
+    units: []
+    periods: []
+  - name: Business Critical
+    access: other
+    model: negotiated
+    model_how: derived
+    units: []
+    periods: []
