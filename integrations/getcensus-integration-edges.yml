@@ -1,5 +1,5 @@
 generated: '2026-10-12'
-method: none
+method: searched
 source:
 - https://zapier.com/apps/getcensus/integrations
 - https://zapier.com/apps/census/integrations
@@ -8,11 +8,1277 @@ source:
 - https://monid.ai/tools/getcensus
 checked:
 - https://composio.dev/toolkits/getcensus
+- https://fivetran.com/docs/activations/destinations/available-destinations
 - https://monid.ai/tools/getcensus
 - https://n8n.io/integrations/getcensus/
 - https://zapier.com/apps/census/integrations
 - https://zapier.com/apps/getcensus/integrations
 summary: null
-marketplace_apps: []
-edges: []
+marketplace_apps:
+- marketplace: coverage
+  channel: coverage-list
+  app: getcensus
+  url: https://fivetran.com/docs/activations/destinations/available-destinations
+  app_count: 171
+  adapter: sweep-cdp.py:src_census
+  listed: 171
+  destinations: 171
+  sources: 0
+  linked: 60
+  unlinked: 108
+  identity: domain (dominant external domain linked from the destination page)
+  status: ok
+edges:
+- partner_name: ActiveCampaign
+  partner: activecampaign
+  partner_match: domain
+  partner_url: https://help.activecampaign.com/hc/en-us/articles/207362110-Exclusion-list-overview
+  marketplace: coverage
+  channel: provider-built
+  direction: provider-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://fivetran.com/docs/activations/destinations/available-destinations/activecampaign
+  coverage_role:
+  - destination
+  cdp_signals:
+    destination:
+      catalog_entries:
+      - activecampaign
+      sync_behaviours:
+      - update only
+      - update or create
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
+- partner_name: Google AlloyDB
+  partner: google
+  partner_match: domain+name-among-holders
+  partner_url: https://cloud.google.com/alloydb/docs/auth-proxy/overview
+  marketplace: coverage
+  channel: provider-built
+  direction: provider-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://fivetran.com/docs/activations/destinations/available-destinations/alloydb
+  coverage_role:
+  - destination
+  cdp_signals:
+    destination:
+      catalog_entries:
+      - alloydb
+      - google-cloud-storage
+      - google-datastore
+      sync_behaviours:
+      - mirror
+      - update only
+      - update or create
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
+- partner_name: Amazon Ads DSP (Amc)
+  partner: amazon
+  partner_match: domain+name-among-holders
+  partner_url: https://advertising.amazon.com/API/docs/en-us/dsp-conversion-builder#tag/Conversion-Event-Data/operation/dspAmazonIngestConversionData
+  marketplace: coverage
+  channel: provider-built
+  direction: provider-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://fivetran.com/docs/activations/destinations/available-destinations/amazon-ads-dsp-amc
+  coverage_role:
+  - destination
+  cdp_signals:
+    destination:
+      catalog_entries:
+      - amazon-ads-dsp-amc
+      sync_behaviours:
+      - update or create
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
+- partner_name: Amazon EventBridge
+  partner: amazon-eventbridge
+  partner_match: domain+name-among-holders
+  partner_url: https://aws.amazon.com/blogs/apn/securely-accessing-customer-aws-accounts-with-cross-account-iam-roles/
+  marketplace: coverage
+  channel: provider-built
+  direction: provider-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://fivetran.com/docs/activations/destinations/available-destinations/amazon-eventbridge
+  coverage_role:
+  - destination
+  cdp_signals:
+    destination:
+      catalog_entries:
+      - amazon-eventbridge
+      sync_behaviours:
+      - mirror
+      - update or create
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
+- partner_name: Amplitude
+  partner: amplitude
+  partner_match: domain
+  partner_url: http://analytics.amplitude.com/amp-dev-docs/settings/projects
+  marketplace: coverage
+  channel: provider-built
+  direction: provider-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://fivetran.com/docs/activations/destinations/available-destinations/amplitude
+  coverage_role:
+  - destination
+  cdp_signals:
+    destination:
+      catalog_entries:
+      - amplitude
+      sync_behaviours:
+      - update or create
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
+- partner_name: Anaplan
+  partner: anaplan
+  partner_match: domain
+  partner_url: https://help.anaplan.com/import-basics-b9d40f84-d2c0-4003-84e3-47a8068da977
+  marketplace: coverage
+  channel: provider-built
+  direction: provider-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://fivetran.com/docs/activations/destinations/available-destinations/anaplan
+  coverage_role:
+  - destination
+  cdp_signals:
+    destination:
+      catalog_entries:
+      - anaplan
+      sync_behaviours:
+      - delete
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
+- partner_name: Antavo
+  partner: antavo
+  partner_match: domain
+  partner_url: https://apidocs.antavo.com/api/security.html
+  marketplace: coverage
+  channel: provider-built
+  direction: provider-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://fivetran.com/docs/activations/destinations/available-destinations/antavo
+  coverage_role:
+  - destination
+  cdp_signals:
+    destination:
+      catalog_entries:
+      - antavo
+      sync_behaviours:
+      - update only
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
+- partner_name: Appcues
+  partner: appcues
+  partner_match: domain
+  partner_url: https://studio.appcues.com/settings/keys
+  marketplace: coverage
+  channel: provider-built
+  direction: provider-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://fivetran.com/docs/activations/destinations/available-destinations/appcues
+  coverage_role:
+  - destination
+  cdp_signals:
+    destination:
+      catalog_entries:
+      - appcues
+      sync_behaviours:
+      - update or create
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
+- partner_name: Attio
+  partner: attio
+  partner_match: domain
+  partner_url: https://developers.attio.com/docs/attribute-types-personal-name#writing-values
+  marketplace: coverage
+  channel: provider-built
+  direction: provider-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://fivetran.com/docs/activations/destinations/available-destinations/attio
+  coverage_role:
+  - destination
+  cdp_signals:
+    destination:
+      catalog_entries:
+      - attio
+      sync_behaviours:
+      - update or create
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
+- partner_name: Braze
+  partner: braze
+  partner_match: domain
+  partner_url: https://www.braze.com/docs/api/basics/#endpoints
+  marketplace: coverage
+  channel: provider-built
+  direction: provider-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://fivetran.com/docs/activations/destinations/available-destinations/braze
+  coverage_role:
+  - destination
+  cdp_signals:
+    destination:
+      catalog_entries:
+      - braze
+      sync_behaviours:
+      - delete
+      - mirror
+      - update or create
+      - upsert
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
+- partner_name: ChartMogul
+  partner: chartmogul
+  partner_match: domain
+  partner_url: https://dev.chartmogul.com/docs/authentication
+  marketplace: coverage
+  channel: provider-built
+  direction: provider-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://fivetran.com/docs/activations/destinations/available-destinations/chartmogul
+  coverage_role:
+  - destination
+  cdp_signals:
+    destination:
+      catalog_entries:
+      - chartmogul
+      sync_behaviours:
+      - update only
+      - update or create
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
+- partner_name: CJ Affiliate
+  partner: cj-affiliate
+  partner_match: domain
+  partner_url: https://developers.cj.com/account/personal-access-tokens
+  marketplace: coverage
+  channel: provider-built
+  direction: provider-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://fivetran.com/docs/activations/destinations/available-destinations/cj-affiliate
+  coverage_role:
+  - destination
+  cdp_signals:
+    destination:
+      catalog_entries:
+      - cj-affiliate
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
+- partner_name: Courier
+  partner: courier
+  partner_match: domain
+  partner_url: https://help.courier.com/en/articles/4677510-using-environments-api-keys-and-migrating-assets#api-keys-and-environments
+  marketplace: coverage
+  channel: provider-built
+  direction: provider-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://fivetran.com/docs/activations/destinations/available-destinations/courier
+  coverage_role:
+  - destination
+  cdp_signals:
+    destination:
+      catalog_entries:
+      - courier
+      sync_behaviours:
+      - mirror
+      - update or create
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
+- partner_name: Databricks
+  partner: databricks
+  partner_match: domain+name-among-holders
+  partner_url: https://docs.databricks.com/en/admin/users-groups/service-principals.html
+  marketplace: coverage
+  channel: provider-built
+  direction: provider-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://fivetran.com/docs/activations/destinations/available-destinations/databricks
+  coverage_role:
+  - destination
+  cdp_signals:
+    destination:
+      catalog_entries:
+      - databricks
+      sync_behaviours:
+      - update only
+      - update or create
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
+- partner_name: Amazon DynamoDB
+  partner: amazon-dynamodb
+  partner_match: domain+name-among-holders
+  partner_url: https://docs.aws.amazon.com/dynamodb/
+  marketplace: coverage
+  channel: provider-built
+  direction: provider-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://fivetran.com/docs/activations/destinations/available-destinations/dynamo-db
+  coverage_role:
+  - destination
+  cdp_signals:
+    destination:
+      catalog_entries:
+      - dynamo-db
+      sync_behaviours:
+      - delete
+      - mirror
+      - update or create
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
+- partner_name: Elasticsearch
+  partner: elasticsearch
+  partner_match: domain+name-among-holders
+  partner_url: https://www.elastic.co/guide/en/kibana/8.13/api-keys.html#create-api-key
+  marketplace: coverage
+  channel: provider-built
+  direction: provider-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://fivetran.com/docs/activations/destinations/available-destinations/elasticsearch
+  coverage_role:
+  - destination
+  cdp_signals:
+    destination:
+      catalog_entries:
+      - elasticsearch
+      sync_behaviours:
+      - mirror
+      - update or create
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
+- partner_name: Emarsys
+  partner: emarsys
+  partner_match: domain
+  partner_url: https://dev.emarsys.com/docs/core-api-reference/75f3acc2c94dc-concepts#keya-namekeya
+  marketplace: coverage
+  channel: provider-built
+  direction: provider-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://fivetran.com/docs/activations/destinations/available-destinations/emarsys
+  coverage_role:
+  - destination
+  cdp_signals:
+    destination:
+      catalog_entries:
+      - emarsys
+      sync_behaviours:
+      - mirror
+      - update only
+      - update or create
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
+- partner_name: Enterpret
+  partner: enterpret
+  partner_match: domain
+  partner_url: https://helpcenter.enterpret.com/en/articles/8317703-census-integration
+  marketplace: coverage
+  channel: provider-built
+  direction: provider-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://fivetran.com/docs/activations/destinations/available-destinations/enterpret
+  coverage_role:
+  - destination
+  cdp_signals:
+    destination:
+      catalog_entries:
+      - enterpret
+      sync_behaviours:
+      - create only
+      - update only
+      - update or create
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
+- partner_name: Facebook Ads
+  partner: facebook
+  partner_match: domain+name-among-holders
+  partner_url: https://www.facebook.com/business/help/327596604689624?id=2190812977867143
+  marketplace: coverage
+  channel: provider-built
+  direction: provider-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://fivetran.com/docs/activations/destinations/available-destinations/facebook-ads
+  coverage_role:
+  - destination
+  cdp_signals:
+    destination:
+      catalog_entries:
+      - facebook-ads
+      - facebook-product-catalog
+      sync_behaviours:
+      - mirror
+      - update or create
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
+- partner_name: Front
+  partner: frontapp
+  partner_match: domain
+  partner_url: https://dev.frontapp.com/docs/core-api-getting-started#limitations
+  marketplace: coverage
+  channel: provider-built
+  direction: provider-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://fivetran.com/docs/activations/destinations/available-destinations/front
+  coverage_role:
+  - destination
+  cdp_signals:
+    destination:
+      catalog_entries:
+      - front
+      sync_behaviours:
+      - update only
+      - update or create
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
+- partner_name: FullStory
+  partner: fullstory
+  partner_match: domain
+  partner_url: https://help.fullstory.com/hc/en-us/articles/360052021773-Managing-API-Keys
+  marketplace: coverage
+  channel: provider-built
+  direction: provider-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://fivetran.com/docs/activations/destinations/available-destinations/fullstory
+  coverage_role:
+  - destination
+  cdp_signals:
+    destination:
+      catalog_entries:
+      - fullstory
+      sync_behaviours:
+      - update only
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
+- partner_name: Google Analytics 4
+  partner: google-analytics
+  partner_match: domain+name-among-holders
+  partner_url: https://developers.google.com/analytics/devguides/collection/protocol/ga4/sending-events?client_type=firebase#required_parameters
+  marketplace: coverage
+  channel: provider-built
+  direction: provider-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://fivetran.com/docs/activations/destinations/available-destinations/google-analytics-four
+  coverage_role:
+  - destination
+  cdp_signals:
+    destination:
+      catalog_entries:
+      - google-analytics-four
+      sync_behaviours:
+      - update only
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
+- partner_name: Google BigQuery
+  partner: google-bigquery
+  partner_match: domain+name-among-holders
+  partner_url: https://cloud.google.com/vpc-service-controls/docs/overview
+  marketplace: coverage
+  channel: provider-built
+  direction: provider-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://fivetran.com/docs/activations/destinations/available-destinations/google-bigquery
+  coverage_role:
+  - destination
+  cdp_signals:
+    destination:
+      catalog_entries:
+      - google-bigquery
+      sync_behaviours:
+      - mirror
+      - update only
+      - update or create
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
+- partner_name: Google Campaign Manager 360
+  partner: google-campaign-manager
+  partner_match: domain+name-among-holders
+  partner_url: https://developers.google.com/doubleclick-advertisers/getting_started
+  marketplace: coverage
+  channel: provider-built
+  direction: provider-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://fivetran.com/docs/activations/destinations/available-destinations/google-campaign-manager-360
+  coverage_role:
+  - destination
+  cdp_signals:
+    destination:
+      catalog_entries:
+      - google-campaign-manager-360
+      sync_behaviours:
+      - update only
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
+- partner_name: Google Display & Video 360
+  partner: google-display-video-360
+  partner_match: domain+name-among-holders
+  partner_url: https://developers.google.com/display-video/api/reference/rest/v2/firstAndThirdPartyAudiences#audiencetype
+  marketplace: coverage
+  channel: provider-built
+  direction: provider-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://fivetran.com/docs/activations/destinations/available-destinations/google-dv360
+  coverage_role:
+  - destination
+  cdp_signals:
+    destination:
+      catalog_entries:
+      - google-dv360
+      sync_behaviours:
+      - mirror
+      - update or create
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
+- partner_name: Help Scout
+  partner: helpscout
+  partner_match: domain
+  partner_url: https://www.helpscout.com/pricing/
+  marketplace: coverage
+  channel: provider-built
+  direction: provider-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://fivetran.com/docs/activations/destinations/available-destinations/help-scout
+  coverage_role:
+  - destination
+  cdp_signals:
+    destination:
+      catalog_entries:
+      - help-scout
+      sync_behaviours:
+      - update only
+      - update or create
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
+- partner_name: HubSpot
+  partner: hubspot
+  partner_match: domain
+  partner_url: https://knowledge.hubspot.com/properties/create-and-edit-properties
+  marketplace: coverage
+  channel: provider-built
+  direction: provider-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://fivetran.com/docs/activations/destinations/available-destinations/hubspot
+  coverage_role:
+  - destination
+  cdp_signals:
+    destination:
+      catalog_entries:
+      - hubspot
+      sync_behaviours:
+      - create only
+      - delete
+      - mirror
+      - update only
+      - update or create
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
+- partner_name: Iterable
+  partner: iterable
+  partner_match: domain
+  partner_url: https://support.iterable.com/hc/en-us/articles/208183076-Field-Data-Types#geo-location
+  marketplace: coverage
+  channel: provider-built
+  direction: provider-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://fivetran.com/docs/activations/destinations/available-destinations/iterable
+  coverage_role:
+  - destination
+  cdp_signals:
+    destination:
+      catalog_entries:
+      - iterable
+      sync_behaviours:
+      - delete
+      - mirror
+      - update only
+      - update or create
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
+- partner_name: Kevel
+  partner: kevel
+  partner_match: domain
+  partner_url: https://dev.kevel.com/docs/interest-targeting#how-to-target-an-interest-segment
+  marketplace: coverage
+  channel: provider-built
+  direction: provider-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://fivetran.com/docs/activations/destinations/available-destinations/kevel
+  coverage_role:
+  - destination
+  cdp_signals:
+    destination:
+      catalog_entries:
+      - kevel
+      sync_behaviours:
+      - mirror
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
+- partner_name: Klaviyo
+  partner: klaviyo
+  partner_match: domain
+  partner_url: https://help.klaviyo.com/hc/en-us/articles/7423954176283
+  marketplace: coverage
+  channel: provider-built
+  direction: provider-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://fivetran.com/docs/activations/destinations/available-destinations/klaviyo
+  coverage_role:
+  - destination
+  cdp_signals:
+    destination:
+      catalog_entries:
+      - klaviyo
+      sync_behaviours:
+      - delete
+      - mirror
+      - update only
+      - update or create
+      - upsert
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
+- partner_name: Kustomer
+  partner: kustomer
+  partner_match: domain
+  partner_url: https://help.kustomer.com/permissions-for-common-api-requests-HkltTBZbN
+  marketplace: coverage
+  channel: provider-built
+  direction: provider-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://fivetran.com/docs/activations/destinations/available-destinations/kustomer
+  coverage_role:
+  - destination
+  cdp_signals:
+    destination:
+      catalog_entries:
+      - kustomer
+      sync_behaviours:
+      - update or create
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
+- partner_name: Labelbox
+  partner: labelbox
+  partner_match: domain
+  partner_url: https://docs.labelbox.com/docs/census-integration
+  marketplace: coverage
+  channel: provider-built
+  direction: provider-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://fivetran.com/docs/activations/destinations/available-destinations/labelbox-ga
+  coverage_role:
+  - destination
+  cdp_signals:
+    destination:
+      catalog_entries:
+      - labelbox-ga
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
+- partner_name: LaunchDarkly
+  partner: launchdarkly
+  partner_match: domain
+  partner_url: https://docs.launchdarkly.com/home/account-security/api-access-tokens#creating-api-access-tokens
+  marketplace: coverage
+  channel: provider-built
+  direction: provider-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://fivetran.com/docs/activations/destinations/available-destinations/launchdarkly
+  coverage_role:
+  - destination
+  cdp_signals:
+    destination:
+      catalog_entries:
+      - launchdarkly
+      sync_behaviours:
+      - mirror
+      - update or create
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
+- partner_name: LinkedIn
+  partner: linkedin
+  partner_match: domain+name-among-holders
+  partner_url: https://docs.microsoft.com/en-us/linkedin/marketing/integrations/matched-audiences/matched-audiences
+  marketplace: coverage
+  channel: provider-built
+  direction: provider-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://fivetran.com/docs/activations/destinations/available-destinations/linkedin
+  coverage_role:
+  - destination
+  cdp_signals:
+    destination:
+      catalog_entries:
+      - linkedin
+      sync_behaviours:
+      - mirror
+      - update or create
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
+- partner_name: Loops
+  partner: loops
+  partner_match: domain
+  partner_url: https://loops.so/docs/integrations/census
+  marketplace: coverage
+  channel: provider-built
+  direction: provider-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://fivetran.com/docs/activations/destinations/available-destinations/loops
+  coverage_role:
+  - destination
+  cdp_signals:
+    destination:
+      catalog_entries:
+      - loops
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
+- partner_name: Mailchimp
+  partner: mailchimp
+  partner_match: domain+name-among-holders
+  partner_url: https://mailchimp.com/developer/marketing/api/list-members/update-list-member/
+  marketplace: coverage
+  channel: provider-built
+  direction: provider-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://fivetran.com/docs/activations/destinations/available-destinations/mailchimp
+  coverage_role:
+  - destination
+  cdp_signals:
+    destination:
+      catalog_entries:
+      - mailchimp
+      sync_behaviours:
+      - update only
+      - update or create
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
+- partner_name: Mailgun
+  partner: mailgun
+  partner_match: domain
+  partner_url: https://documentation.mailgun.com/docs/mailgun/user-manual/sending-messages/mailing-lists
+  marketplace: coverage
+  channel: provider-built
+  direction: provider-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://fivetran.com/docs/activations/destinations/available-destinations/mailgun
+  coverage_role:
+  - destination
+  cdp_signals:
+    destination:
+      catalog_entries:
+      - mailgun
+      sync_behaviours:
+      - update or create
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
+- partner_name: Microsoft Advertising
+  partner: microsoft-advertising
+  partner_match: domain+name-among-holders
+  partner_url: https://about.ads.microsoft.com/en-us/solutions/audience-targeting/customer-match
+  marketplace: coverage
+  channel: provider-built
+  direction: provider-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://fivetran.com/docs/activations/destinations/available-destinations/microsoft-advertising
+  coverage_role:
+  - destination
+  cdp_signals:
+    destination:
+      catalog_entries:
+      - microsoft-advertising
+      sync_behaviours:
+      - mirror
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
+- partner_name: Microsoft Dynamics
+  partner: microsoft
+  partner_match: domain+name-among-holders
+  partner_url: https://docs.microsoft.com/en-us/power-platform/admin/environments-overview#the-default-environment
+  marketplace: coverage
+  channel: provider-built
+  direction: provider-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://fivetran.com/docs/activations/destinations/available-destinations/microsoft-dynamics
+  coverage_role:
+  - destination
+  cdp_signals:
+    destination:
+      catalog_entries:
+      - microsoft-dynamics
+      sync_behaviours:
+      - update only
+      - update or create
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
+- partner_name: Mixpanel
+  partner: mixpanel
+  partner_match: domain
+  partner_url: https://help.mixpanel.com/hc/en-us/articles/115004502806-Find-Project-Token-
+  marketplace: coverage
+  channel: provider-built
+  direction: provider-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://fivetran.com/docs/activations/destinations/available-destinations/mixpanel
+  coverage_role:
+  - destination
+  cdp_signals:
+    destination:
+      catalog_entries:
+      - mixpanel
+      sync_behaviours:
+      - update or create
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
+- partner_name: MoEngage
+  partner: moengage
+  partner_match: domain
+  partner_url: https://help.moengage.com/hc/en-us/articles/360057030512-Data-Centers-in-MoEngage#01G5DQVXGT2KZMXTJPF77QPJ25
+  marketplace: coverage
+  channel: provider-built
+  direction: provider-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://fivetran.com/docs/activations/destinations/available-destinations/moengage
+  coverage_role:
+  - destination
+  cdp_signals:
+    destination:
+      catalog_entries:
+      - moengage
+      sync_behaviours:
+      - update or create
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
+- partner_name: Monday
+  partner: monday-com
+  partner_match: domain
+  partner_url: https://developer.monday.com/apps/docs/choosing-auth#method-3-using-a-users-global-api-token
+  marketplace: coverage
+  channel: provider-built
+  direction: provider-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://fivetran.com/docs/activations/destinations/available-destinations/monday
+  coverage_role:
+  - destination
+  cdp_signals:
+    destination:
+      catalog_entries:
+      - monday
+      sync_behaviours:
+      - update or create
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
+- partner_name: NetSuite
+  partner: netsuite
+  partner_match: domain
+  partner_url: https://nlcorp.app.netsuite.com/core/media/media.nl?id=127925362&amp;c=NLCORP&amp;h=8742ad8b887aa6881f85&amp;_xt=.pdf
+  marketplace: coverage
+  channel: provider-built
+  direction: provider-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://fivetran.com/docs/activations/destinations/available-destinations/netsuite
+  coverage_role:
+  - destination
+  cdp_signals:
+    destination:
+      catalog_entries:
+      - netsuite
+      sync_behaviours:
+      - create only
+      - update only
+      - update or create
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
+- partner_name: Oracle Responsys
+  partner: responsys
+  partner_match: domain+name-among-holders
+  partner_url: https://docs.oracle.com/en/cloud/saas/marketing/responsys-develop/API/GetStarted/Authentication/auth-endpoints-rest.htm
+  marketplace: coverage
+  channel: provider-built
+  direction: provider-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://fivetran.com/docs/activations/destinations/available-destinations/oracle-responsys
+  coverage_role:
+  - destination
+  cdp_signals:
+    destination:
+      catalog_entries:
+      - oracle-responsys
+      sync_behaviours:
+      - update or create
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
+- partner_name: Orbit
+  partner: orbit
+  partner_match: domain
+  partner_url: https://app.orbit.love/user/settings/edit
+  marketplace: coverage
+  channel: provider-built
+  direction: provider-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://fivetran.com/docs/activations/destinations/available-destinations/orbit
+  coverage_role:
+  - destination
+  cdp_signals:
+    destination:
+      catalog_entries:
+      - orbit
+      sync_behaviours:
+      - update or create
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
+- partner_name: Ortto
+  partner: ortto
+  partner_match: domain
+  partner_url: https://help.ortto.com/developer/latest/developer-guide/rate-limits.html
+  marketplace: coverage
+  channel: provider-built
+  direction: provider-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://fivetran.com/docs/activations/destinations/available-destinations/ortto
+  coverage_role:
+  - destination
+  cdp_signals:
+    destination:
+      catalog_entries:
+      - ortto
+      sync_behaviours:
+      - update only
+      - update or create
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
+- partner_name: Pinecone
+  partner: pinecone
+  partner_match: domain
+  partner_url: https://docs.pinecone.io/guides/projects/manage-api-keys
+  marketplace: coverage
+  channel: provider-built
+  direction: provider-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://fivetran.com/docs/activations/destinations/available-destinations/pinecone
+  coverage_role:
+  - destination
+  cdp_signals:
+    destination:
+      catalog_entries:
+      - pinecone
+      sync_behaviours:
+      - mirror
+      - update or create
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
+- partner_name: Pinterest
+  partner: pinterest
+  partner_match: domain
+  partner_url: https://developers.pinterest.com/docs/api/v5/#tag/customer_lists
+  marketplace: coverage
+  channel: provider-built
+  direction: provider-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://fivetran.com/docs/activations/destinations/available-destinations/pinterest
+  coverage_role:
+  - destination
+  cdp_signals:
+    destination:
+      catalog_entries:
+      - pinterest
+      sync_behaviours:
+      - mirror
+      - update or create
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
+- partner_name: PostgreSQL
+  partner: postgresql
+  partner_match: domain
+  partner_url: https://www.postgresql.org/docs/current/ddl-alter.html#DDL-ALTER-ADDING-A-CONSTRAINT
+  marketplace: coverage
+  channel: provider-built
+  direction: provider-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://fivetran.com/docs/activations/destinations/available-destinations/postgres
+  coverage_role:
+  - destination
+  cdp_signals:
+    destination:
+      catalog_entries:
+      - postgres
+      sync_behaviours:
+      - mirror
+      - update only
+      - update or create
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
+- partner_name: Reddit Ads
+  partner: reddit
+  partner_match: domain
+  partner_url: https://ads-api.reddit.com/docs/#tag/Conversions/paths/~1api~1v2.0~1conversions~1events~1%7Baccount_id%7D/post
+  marketplace: coverage
+  channel: provider-built
+  direction: provider-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://fivetran.com/docs/activations/destinations/available-destinations/reddit
+  coverage_role:
+  - destination
+  cdp_signals:
+    destination:
+      catalog_entries:
+      - reddit
+      sync_behaviours:
+      - mirror
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
+- partner_name: Amazon S3
+  partner: amazon-s3
+  partner_match: domain+name-among-holders
+  partner_url: https://docs.aws.amazon.com/AmazonS3/latest/userguide/create-bucket-overview.html
+  marketplace: coverage
+  channel: provider-built
+  direction: provider-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://fivetran.com/docs/activations/destinations/available-destinations/s3
+  coverage_role:
+  - destination
+  cdp_signals:
+    destination:
+      catalog_entries:
+      - s3
+      sync_behaviours:
+      - update or create
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
+- partner_name: Salesforce
+  partner: salesforce
+  partner_match: domain+name-among-holders
+  partner_url: https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/asynch_api_intro.htm
+  marketplace: coverage
+  channel: provider-built
+  direction: provider-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://fivetran.com/docs/activations/destinations/available-destinations/salesforce
+  coverage_role:
+  - destination
+  cdp_signals:
+    destination:
+      catalog_entries:
+      - salesforce
+      sync_behaviours:
+      - create only
+      - delete
+      - mirror
+      - update only
+      - update or create
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
+- partner_name: Snapchat
+  partner: snapchat
+  partner_match: domain+name-among-holders
+  partner_url: https://developers.snap.com/api/marketing-api/Conversions-API/BestPractices
+  marketplace: coverage
+  channel: provider-built
+  direction: provider-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://fivetran.com/docs/activations/destinations/available-destinations/snapchat
+  coverage_role:
+  - destination
+  cdp_signals:
+    destination:
+      catalog_entries:
+      - snapchat
+      sync_behaviours:
+      - mirror
+      - update or create
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
+- partner_name: Snowflake
+  partner: snowflake
+  partner_match: domain
+  partner_url: https://docs.snowflake.com/en/user-guide/key-pair-auth#configuring-key-pair-authentication
+  marketplace: coverage
+  channel: provider-built
+  direction: provider-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://fivetran.com/docs/activations/destinations/available-destinations/snowflake
+  coverage_role:
+  - destination
+  cdp_signals:
+    destination:
+      catalog_entries:
+      - snowflake
+      sync_behaviours:
+      - mirror
+      - update only
+      - update or create
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
+- partner_name: Statsig
+  partner: statsig
+  partner_match: domain
+  partner_url: https://docs.statsig.com/integrations/data-connectors/census/
+  marketplace: coverage
+  channel: provider-built
+  direction: provider-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://fivetran.com/docs/activations/destinations/available-destinations/statsig
+  coverage_role:
+  - destination
+  cdp_signals:
+    destination:
+      catalog_entries:
+      - statsig
+      sync_behaviours:
+      - create only
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
+- partner_name: Stripe
+  partner: stripe
+  partner_match: domain
+  partner_url: https://dashboard.stripe.com/apikeys
+  marketplace: coverage
+  channel: provider-built
+  direction: provider-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://fivetran.com/docs/activations/destinations/available-destinations/stripe
+  coverage_role:
+  - destination
+  cdp_signals:
+    destination:
+      catalog_entries:
+      - stripe
+      sync_behaviours:
+      - update only
+      - update or create
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
+- partner_name: TikTok
+  partner: tiktok
+  partner_match: domain+name-among-holders
+  partner_url: https://ads.tiktok.com/gateway/docs/index?identify_key=2b9b4278e47b275f36e7c39a4af4ba067d088e031d5f5fe45d381559ac89ba48&amp;language=ENGLISH&amp;doc_id=1701890972946433#item-link-Before%20you%20begin
+  marketplace: coverage
+  channel: provider-built
+  direction: provider-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://fivetran.com/docs/activations/destinations/available-destinations/tiktok
+  coverage_role:
+  - destination
+  cdp_signals:
+    destination:
+      catalog_entries:
+      - tiktok
+      sync_behaviours:
+      - mirror
+      - update or create
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
+- partner_name: The Trade Desk
+  partner: trade-desk
+  partner_match: domain
+  partner_url: https://api.thetradedesk.com/v3/portal/api/doc/Authentication
+  marketplace: coverage
+  channel: provider-built
+  direction: provider-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://fivetran.com/docs/activations/destinations/available-destinations/trade-desk
+  coverage_role:
+  - destination
+  cdp_signals:
+    destination:
+      catalog_entries:
+      - trade-desk
+      sync_behaviours:
+      - mirror
+      - update only
+      - update or create
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
+- partner_name: Turbopuffer
+  partner: turbopuffer
+  partner_match: domain
+  partner_url: https://turbopuffer.com/docs/auth
+  marketplace: coverage
+  channel: provider-built
+  direction: provider-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://fivetran.com/docs/activations/destinations/available-destinations/turbopuffer
+  coverage_role:
+  - destination
+  cdp_signals:
+    destination:
+      catalog_entries:
+      - turbopuffer
+      sync_behaviours:
+      - mirror
+      - update or create
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
+- partner_name: Unify
+  partner: unify
+  partner_match: domain
+  partner_url: https://docs.unifygtm.com/developers/guides/import-data/overview
+  marketplace: coverage
+  channel: provider-built
+  direction: provider-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://fivetran.com/docs/activations/destinations/available-destinations/unify
+  coverage_role:
+  - destination
+  cdp_signals:
+    destination:
+      catalog_entries:
+      - unify
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
 templates: []
