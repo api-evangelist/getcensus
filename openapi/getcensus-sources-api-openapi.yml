@@ -94,13 +94,6 @@ paths:
           description: Deleted
 components:
   parameters:
-    PerPage:
-      in: query
-      name: per_page
-      schema:
-        type: integer
-        minimum: 1
-        maximum: 100
     Id:
       in: path
       name: id
@@ -113,22 +106,14 @@ components:
       schema:
         type: integer
         minimum: 1
+    PerPage:
+      in: query
+      name: per_page
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 100
   schemas:
-    Source:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        type:
-          type: string
-          description: Data warehouse type (snowflake, bigquery, databricks, redshift, postgres)
-        credentials:
-          type: object
-        created_at:
-          type: string
-          format: date-time
     PaginatedList:
       type: object
       properties:
@@ -151,6 +136,21 @@ components:
             previous_page:
               type: integer
               nullable: true
+    Source:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        type:
+          type: string
+          description: Data warehouse type (snowflake, bigquery, databricks, redshift, postgres)
+        credentials:
+          type: object
+        created_at:
+          type: string
+          format: date-time
   securitySchemes:
     bearerAuth:
       type: http
