@@ -14,6 +14,7 @@ checked:
 - https://n8n.io/integrations/getcensus/
 - https://zapier.com/apps/census/integrations
 - https://zapier.com/apps/getcensus/integrations
+- zendesk/integrations/zendesk-integration-edges.yml
 summary: null
 marketplace_apps:
 - marketplace: coverage
@@ -1299,4 +1300,21 @@ edges:
   detected: '2026-10-14'
   detected_by: mirror-platform-listings.py
   category: Automation
+- partner_name: Zendesk (own)
+  partner: zendesk
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://www.zendesk.com/marketplace/apps/support/257231/census/
+  mirror_of: zendesk/integrations/zendesk-integration-edges.yml
+  apps:
+  - Census
+  listing_count: 1
+  detected: '2026-10-20'
+  detected_by: mirror-platform-listings.py
+  category: CRM and Marketing
 templates: []

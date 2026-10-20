@@ -736,3 +736,16 @@
   relationship: platform-app
   status: not-a-workflow
   arazzo: null
+- slug: getcensus-zendesk-own
+  label: Zendesk (own)
+  partner: zendesk
+  partner_name: Zendesk (own)
+  category: CRM and Marketing
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://www.zendesk.com/marketplace/apps/support/257231/census/
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
