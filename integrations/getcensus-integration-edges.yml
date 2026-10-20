@@ -1,4 +1,4 @@
-generated: '2026-10-12'
+generated: '2026-10-20'
 method: searched
 source:
 - https://zapier.com/apps/getcensus/integrations
@@ -6,6 +6,7 @@ source:
 - https://n8n.io/integrations/getcensus/
 - https://composio.dev/toolkits/getcensus
 - https://monid.ai/tools/getcensus
+- https://fivetran.com/docs/activations/destinations/available-destinations
 checked:
 - datadog/integrations/datadog-integration-edges.yml
 - https://composio.dev/toolkits/getcensus
