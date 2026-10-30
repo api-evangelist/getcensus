@@ -1,4 +1,4 @@
-# Census (getcensus)
+# Census
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,40 +64,151 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Census (now part of Fivetran as Fivetran Activations) is a reverse ETL platform that enables data teams to sync processed data from data warehouses to over 200 business destinations including CRM, marketing automation, advertising, and customer success tools.
+Census (now Fivetran Activations) is a reverse ETL platform that syncs data from data warehouses to CRM, marketing, advertising, and other business destinations. It enables data teams to define SQL-based models and segments, then automatically activate that data to over 200 destinations including Salesforce, HubSpot, Facebook Ads, and Google Ads without writing custom integrations.
 
-## Overview
+**Areas:** Sync · Census · Reverse ETL · Data Activation · Data Warehouse · CRM · Marketing Automation · Segments · SQL
 
-Census allows data teams to define SQL-based models and segments directly against their data warehouse (Snowflake, BigQuery, Redshift, Databricks, etc.) and automatically activate that data into business applications without writing custom integration code. Key capabilities include:
+## Census on APIs.io
 
-- **Reverse ETL Syncs** - Automated pipelines from warehouse to destination apps
-- **Audience Hub** - SQL-free segment building for campaign targeting
-- **SQL Models** - Define which data to sync using SQL against your warehouse
-- **200+ Destinations** - Salesforce, HubSpot, Facebook Ads, Google Ads, Zendesk, and more
-- **Management API** - Programmatic control of syncs, connections, and models
+Everything profiled for Census is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/getcensus/](https://apis.io/providers/getcensus/)** — or go straight to one of the APIs or properties below.
 
-## API
+### APIs (18)
 
-The Census Management API provides REST endpoints for managing all aspects of the platform:
+- [Census Management API](https://apis.io/apis/getcensus/census-management-api/) — The Census Management REST API allows developers to programmatically manage syncs, connections, models, segments, and destinations within Census workspaces…
+- [Census Activations REST API](https://apis.io/apis/getcensus/census-activations-api/) — The Census Activations REST API (formerly Census Management API) lets teams programmatically manage reverse ETL pipelines, sources, models, destinations,…
+- [Census Custom Destinations API](https://apis.io/apis/getcensus/census-custom-destinations-api/) — Custom Destinations API lets partners declare the type of data a destination can process, the operations allowed on that data, and the loading mechanism so…
+- [Census Connect Links (Powered by Fivetran)](https://apis.io/apis/getcensus/census-connect-links-api/) — Connect Links enable embedded Activations flows for Powered by Fivetran partners, letting end users configure destinations and syncs from within a host…
+- [Census Connectors API](https://apis.io/apis/getcensus/census-ci-connectors-api/) — The Connectors API from Census — 2 operation(s) for connectors.
+- [Census Datasets and Models API](https://apis.io/apis/getcensus/census-ci-datasets-and-models-api/) — The Datasets and Models API from Census — 3 operation(s) for datasets and models.
+- [Census Destinations API](https://apis.io/apis/getcensus/census-ci-destinations-api/) — The Destinations API from Census — 3 operation(s) for destinations.
+- [Census Segments API](https://apis.io/apis/getcensus/census-ci-segments-api/) — The Segments API from Census — 2 operation(s) for segments.
+- [Census Sources API](https://apis.io/apis/getcensus/census-ci-sources-api/) — The Sources API from Census — 3 operation(s) for sources.
+- [Census Sync Runs API](https://apis.io/apis/getcensus/census-ci-sync-runs-api/) — The Sync Runs API from Census — 3 operation(s) for sync runs.
+- [Census Syncs API](https://apis.io/apis/getcensus/census-ci-syncs-api/) — The Syncs API from Census — 3 operation(s) for syncs.
+- [Census Destinations API](https://apis.io/apis/getcensus/getcensus-destinations-api/) — Destination connections to operational systems
+- [Census Models API](https://apis.io/apis/getcensus/getcensus-models-api/) — Modeled queries that drive activations
+- [Census Segments API](https://apis.io/apis/getcensus/getcensus-segments-api/) — Audience segments
+- [Census Sources API](https://apis.io/apis/getcensus/getcensus-sources-api/) — Source connections to data warehouses
+- [Census Sync Runs API](https://apis.io/apis/getcensus/getcensus-syncruns-api/) — Sync executions
+- [Census Syncs API](https://apis.io/apis/getcensus/getcensus-syncs-api/) — Sync configurations
+- [Census Workspaces API](https://apis.io/apis/getcensus/getcensus-workspaces-api/) — Organization-level workspace management
 
-- **Base URL (US):** `https://app.getcensus.com/api/v1`
-- **Base URL (EU):** `https://app-eu.getcensus.com/api/v1`
-- **Authentication:** Bearer token (workspace API keys or personal access tokens)
-- **Documentation:** https://fivetran.com/docs/activations/rest-api/api-reference/introduction
+### Published properties
 
-## Resources
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-| Resource | URL |
-|----------|-----|
-| Website | https://www.getcensus.com/ |
-| Documentation | https://fivetran.com/docs/activations |
-| API Reference | https://developers.getcensus.com/api-reference/introduction/overview |
-| GitHub | https://github.com/sutrolabs |
-| Blog | https://www.getcensus.com/blog |
-| Pricing | https://www.fivetran.com/pricing |
-| Status | https://status.getcensus.com/ |
-| Changelog | https://whatsnew.getcensus.com/ |
+#### AsyncAPI (1)
 
-## Maintainers
+Event-driven and webhook contracts.
 
-**Kin Lane** - kin@apievangelist.com
+- [Getcensus Sync Lifecycle Webhooks](https://apis.io/asyncapis/getcensus/getcensus-sync-lifecycle-webhooks/)
+
+#### GraphQL (1)
+
+GraphQL schemas.
+
+- [Census GraphQL API](https://apis.io/graphqls/getcensus/census-graphql/)
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [Census (Fivetran Activations) — candidate MCP tool surface](https://apis.io/servers/getcensus/census-fivetran-activations-candidate-mcp-tool-surface/)
+
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Getcensus Authentication](https://apis.io/security/getcensus/getcensus-authentication/)
+- [Getcensus Domain Security](https://apis.io/security/getcensus/getcensus-domain-security/)
+- [Getcensus Trust Center](https://apis.io/security/getcensus/getcensus-trust-center/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Getcensus Plans Pricing](https://apis.io/plans/getcensus/getcensus-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Getcensus Rate Limits](https://apis.io/rate-limits/getcensus/getcensus-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Getcensus Finops](https://apis.io/finops/getcensus/getcensus-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.getcensus.com/)
+- [Documentation](https://fivetran.com/docs/activations)
+- [API reference](https://fivetran.com/docs/activations/rest-api/api-reference/introduction)
+- [Pricing](https://www.fivetran.com/pricing)
+- [Sign up](https://app.getcensus.com/signup)
+- [Support](https://support.fivetran.com/hc/en-us)
+- [Changelog](https://whatsnew.getcensus.com/)
+- [Blog](https://www.getcensus.com/blog)
+- [Compliance](https://www.fivetran.com/security)
+- [Terms of service](https://www.fivetran.com/legal/terms-of-use)
+- [Privacy policy](https://www.fivetran.com/legal/privacy)
+- [Status](https://status.getcensus.com/)
+
+## API Evangelist rating
+
+**Kin Score 61.6** — strong · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 62.5 |
+| Contract quality | 56.1 |
+| Contract governance | 18.2 |
+| Operational transparency | 65.8 |
+| Developer ergonomics | 66.7 |
+| Access clarity | 78.9 |
+
+**Agent readiness 26.5** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | yes |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | paginated |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 29.4** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/getcensus/](https://apis.io/providers/getcensus/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Census: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/getcensus/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
